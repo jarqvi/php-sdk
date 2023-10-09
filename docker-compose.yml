@@ -1,0 +1,47 @@
+version: '3.5'
+services:
+  paas:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ${PWD}/.:/local
+    command: >
+      generate
+      -i https://openapi.liara.ir/paas.yaml
+      -g php
+      -o /local/paas
+  dbaas:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ${PWD}/.:/local
+    command: >
+      generate
+      -i https://openapi.liara.ir/dbaas.yaml
+      -g php
+      -o /local/dbaas
+  dns:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ${PWD}/.:/local
+    command: >
+      generate
+      -i https://openapi.liara.ir/dns.yaml
+      -g php
+      -o /local/dns
+  mail:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ${PWD}/.:/local
+    command: >
+      generate
+      -i https://openapi.liara.ir/mail.yaml
+      -g php
+      -o /local/mail
+  object-storage:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ${PWD}/.:/local
+    command: >
+      generate
+      -i https://openapi.liara.ir/object-storage.yaml
+      -g php
+      -o /local/object-storage
