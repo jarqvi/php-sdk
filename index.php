@@ -1,35 +1,6 @@
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use OpenAPI\Client;
-
-use OpenAPI\Client\Configuration;
-
-use OpenAPI\Client\Api\AccountsApi;
-use OpenAPI\Client\Api\AppsApi;
-use OpenAPI\Client\Api\AttachmentsApi;
-use OpenAPI\Client\Api\BackupsApi;
-use OpenAPI\Client\Api\BucketApi;
-use OpenAPI\Client\Api\CheckNameServersApi;
-use OpenAPI\Client\Api\DatabasesApi;
-use OpenAPI\Client\Api\DeployApi;
-use OpenAPI\Client\Api\DisksApi;
-use OpenAPI\Client\Api\DnsRecordApi;
-use OpenAPI\Client\Api\DomainsApi;
-use OpenAPI\Client\Api\EventApi;
-use OpenAPI\Client\Api\FolderApi;
-use OpenAPI\Client\Api\ForwardApi;
-use OpenAPI\Client\Api\InboundrulesApi;
-use OpenAPI\Client\Api\KeyApi;
-use OpenAPI\Client\Api\MailsApi;
-use OpenAPI\Client\Api\MessagesApi;
-use OpenAPI\Client\Api\MetricsApi;
-use OpenAPI\Client\Api\ObjectApi;
-use OpenAPI\Client\Api\ReportsApi;
-use OpenAPI\Client\Api\SettingsApi;
-use OpenAPI\Client\Api\SmtpApi;
-use OpenAPI\Client\Api\ZoneApi;
-
 class Paas
 {
     public $paasConfig;
@@ -43,16 +14,16 @@ class Paas
 
     public function __construct($token)
     {
-        $this->paasConfig = Configuration::getDefaultConfiguration()
+        $this->paasConfig = OpenAPI\Client\Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
             ->setHost("https://api.iran.liara.ir");
 
-        $this->AppsApi = new AppsApi(null, $this->paasConfig);
-        $this->DeployApi = new DeployApi(null, $this->paasConfig);
-        $this->SettingsApi = new SettingsApi(null, $this->paasConfig);
-        $this->DisksApi = new DisksApi(null, $this->paasConfig);
-        $this->DomainsApi = new DomainsApi(null, $this->paasConfig);
-        $this->ReportsApi = new ReportsApi(null, $this->paasConfig);
+        $this->AppsApi = new OpenAPI\Client\Api\AppsApi(null, $this->paasConfig);
+        $this->DeployApi = new OpenAPI\Client\Api\DeployApi(null, $this->paasConfig);
+        $this->SettingsApi = new OpenAPI\Client\Api\SettingsApi(null, $this->paasConfig);
+        $this->DisksApi = new OpenAPI\Client\Api\DisksApi(null, $this->paasConfig);
+        $this->DomainsApi = new OpenAPI\Client\Api\DomainsApi(null, $this->paasConfig);
+        $this->ReportsApi = new OpenAPI\Client\Api\ReportsApi(null, $this->paasConfig);
     }
 }
 
@@ -66,13 +37,13 @@ class DBaas
 
     public function __construct($token)
     {
-        $this->dbaasConfig = Configuration::getDefaultConfiguration()
+        $this->dbaasConfig = OpenAPI\Client\Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
             ->setHost("https://api.iran.liara.ir");
 
-        $this->DatabasesApi = new DatabasesApi(null, $this->dbaasConfig);
-        $this->BackupsApi = new BackupsApi(null, $this->dbaasConfig);
-        $this->ReportsApi = new ReportsApi(null, $this->dbaasConfig);
+        $this->DatabasesApi = new OpenAPI\Client\Api\DatabasesApi(null, $this->dbaasConfig);
+        $this->BackupsApi = new OpenAPI\Client\Api\BackupsApi(null, $this->dbaasConfig);
+        $this->ReportsApi = new OpenAPI\Client\Api\ReportsApi(null, $this->dbaasConfig);
     }
 }
 
@@ -86,13 +57,13 @@ class Dns
 
     public function __construct($token)
     {
-        $this->dnsConfig = Configuration::getDefaultConfiguration()
+        $this->dnsConfig = OpenAPI\Client\Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
             ->setHost("https://dns-service.iran.liara.ir");
 
-        $this->ZoneApi = new ZoneApi(null, $this->dnsConfig);
-        $this->CheckNameServersApi = new CheckNameServersApi(null, $this->dnsConfig);
-        $this->DnsRecordApi = new DnsRecordApi(null, $this->dnsConfig);
+        $this->ZoneApi = new OpenAPI\Client\Api\ZoneApi(null, $this->dnsConfig);
+        $this->CheckNameServersApi = new OpenAPI\Client\Api\CheckNameServersApi(null, $this->dnsConfig);
+        $this->DnsRecordApi = new OpenAPI\Client\Api\DnsRecordApi(null, $this->dnsConfig);
     }
 }
 
@@ -111,18 +82,18 @@ class Mail
 
     public function __construct($token)
     {
-        $this->mailConfig = Configuration::getDefaultConfiguration()
+        $this->mailConfig = OpenAPI\Client\Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
             ->setHost("https://mail-service.iran.liara.ir");
 
-        $this->MailsApi = new MailsApi(null, $this->mailConfig);
-        $this->InboundrulesApi = new InboundrulesApi(null, $this->mailConfig);
-        $this->SmtpApi = new SmtpApi(null, $this->mailConfig);
-        $this->AccountsApi = new AccountsApi(null, $this->mailConfig);
-        $this->MessagesApi = new MessagesApi(null, $this->mailConfig);
-        $this->ForwardApi = new ForwardApi(null, $this->mailConfig);
-        $this->AttachmentsApi = new AttachmentsApi(null, $this->mailConfig);
-        $this->EventApi = new EventApi(null, $this->mailConfig);
+        $this->MailsApi = new OpenAPI\Client\Api\MailsApi(null, $this->mailConfig);
+        $this->InboundrulesApi = new OpenAPI\Client\Api\InboundrulesApi(null, $this->mailConfig);
+        $this->SmtpApi = new OpenAPI\Client\Api\SmtpApi(null, $this->mailConfig);
+        $this->AccountsApi = new OpenAPI\Client\Api\AccountsApi(null, $this->mailConfig);
+        $this->MessagesApi = new OpenAPI\Client\Api\MessagesApi(null, $this->mailConfig);
+        $this->ForwardApi = new OpenAPI\Client\Api\ForwardApi(null, $this->mailConfig);
+        $this->AttachmentsApi = new OpenAPI\Client\Api\AttachmentsApi(null, $this->mailConfig);
+        $this->EventApi = new OpenAPI\Client\Api\EventApi(null, $this->mailConfig);
     }
 }
 
@@ -138,14 +109,14 @@ class ObjectStorage
 
     public function __construct($token)
     {
-        $this->objectStorage = Configuration::getDefaultConfiguration()
+        $this->objectStorage = OpenAPI\Client\Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
             ->setHost("https://storage-service.iran.liara.ir");
 
-        $this->BucketApi = new BucketApi(null, $this->objectStorage);
-        $this->KeyApi = new KeyApi(null, $this->objectStorage);
-        $this->FolderApi = new FolderApi(null, $this->objectStorage);
-        $this->ObjectApi = new ObjectApi(null, $this->objectStorage);
-        $this->MetricsApi = new MetricsApi(null, $this->objectStorage);
+        $this->BucketApi = new OpenAPI\Client\Api\BucketApi(null, $this->objectStorage);
+        $this->KeyApi = new OpenAPI\Client\Api\KeyApi(null, $this->objectStorage);
+        $this->FolderApi = new OpenAPI\Client\Api\FolderApi(null, $this->objectStorage);
+        $this->ObjectApi = new OpenAPI\Client\Api\ObjectApi(null, $this->objectStorage);
+        $this->MetricsApi = new OpenAPI\Client\Api\MetricsApi(null, $this->objectStorage);
     }
 }
