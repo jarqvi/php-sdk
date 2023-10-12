@@ -12,7 +12,7 @@
 /**
  * DNS
  *
- * Manage dns zones and records
+ * Manage DNS zones and records
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@liara.ir
@@ -44,13 +44,12 @@ use OpenAPI\Client\Api\ZoneApi;
  */
 class Dns extends Exception
 {
-    public $dnsConfig;
+    public Configuration $dnsConfig;
+    public ZoneApi $ZoneApi;
+    public CheckNameServersApi $CheckNameServersApi;
+    public DnsRecordApi $DnsRecordApi;
 
-    public $ZoneApi;
-    public $CheckNameServersApi;
-    public $DnsRecordApi;
-
-    public function __construct($token)
+    public function __construct(string $token)
     {
         $this->dnsConfig = Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")

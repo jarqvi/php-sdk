@@ -47,16 +47,15 @@ use OpenAPI\Client\Api\SettingsApi;
  */
 class Paas extends Exception
 {
-    public $paasConfig;
+    public Configuration $paasConfig;
+    public AppsApi $AppsApi;
+    public DeployApi $DeployApi;
+    public SettingsApi $SettingsApi;
+    public DisksApi $DisksApi;
+    public DomainsApi $DomainsApi;
+    public ReportsApi $ReportsApi;
 
-    public $AppsApi;
-    public $DeployApi;
-    public $SettingsApi;
-    public $DisksApi;
-    public $DomainsApi;
-    public $ReportsApi;
-
-    public function __construct($token)
+    public function __construct(string $token)
     {
         $this->paasConfig = Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")

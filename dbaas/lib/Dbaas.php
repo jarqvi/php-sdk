@@ -44,13 +44,12 @@ use OpenAPI\Client\Api\ReportsApi;
  */
 class Dbaas extends Exception
 {
-    public $dbaasConfig;
+    public Configuration $dbaasConfig;
+    public DatabasesApi $DatabasesApi;
+    public BackupsApi $BackupsApi;
+    public ReportsApi $ReportsApi;
 
-    public $DatabasesApi;
-    public $BackupsApi;
-    public $ReportsApi;
-
-    public function __construct($token)
+    public function __construct(string $token)
     {
         $this->dbaasConfig = Configuration::getDefaultConfiguration()
             ->setApiKey("Authorization", "Bearer $token")
