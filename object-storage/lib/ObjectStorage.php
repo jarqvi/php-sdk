@@ -28,7 +28,6 @@
 
 namespace OpenAPI\Client;
 
-use \Exception;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\Api\BucketApi;
 use OpenAPI\Client\Api\FolderApi;
@@ -44,7 +43,7 @@ use OpenAPI\Client\Api\ObjectApi;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ObjectStorage extends Exception
+class ObjectStorage
 {
     public Configuration $objectStorage;
     public BucketApi $BucketApi;

@@ -28,7 +28,6 @@
 
 namespace OpenAPI\Client;
 
-use \Exception;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\Api\CheckNameServersApi;
 use OpenAPI\Client\Api\DnsRecordApi;
@@ -42,7 +41,7 @@ use OpenAPI\Client\Api\ZoneApi;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Dns extends Exception
+class Dns
 {
     public Configuration $dnsConfig;
     public ZoneApi $ZoneApi;

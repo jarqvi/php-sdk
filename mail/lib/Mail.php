@@ -28,7 +28,6 @@
 ;
 namespace OpenAPI\Client;
 
-use \Exception;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\Api\AccountsApi;
 use OpenAPI\Client\Api\AttachmentsApi;
@@ -47,7 +46,7 @@ use OpenAPI\Client\Api\SmtpApi;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Mail extends Exception
+class Mail
 {
     public Configuration $mailConfig;
     public MailsApi $MailsApi;

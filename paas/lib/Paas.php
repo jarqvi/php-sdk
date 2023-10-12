@@ -28,7 +28,6 @@
 
 namespace OpenAPI\Client;
 
-use \Exception;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\Api\AppsApi;
 use OpenAPI\Client\Api\DeployApi;
@@ -45,7 +44,7 @@ use OpenAPI\Client\Api\SettingsApi;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Paas extends Exception
+class Paas
 {
     public Configuration $paasConfig;
     public AppsApi $AppsApi;

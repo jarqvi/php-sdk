@@ -28,7 +28,6 @@
 
 namespace OpenAPI\Client;
 
-use \Exception;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\Api\BackupsApi;
 use OpenAPI\Client\Api\DatabasesApi;
@@ -42,7 +41,7 @@ use OpenAPI\Client\Api\ReportsApi;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Dbaas extends Exception
+class Dbaas
 {
     public Configuration $dbaasConfig;
     public DatabasesApi $DatabasesApi;
