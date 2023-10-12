@@ -1,188 +1,212 @@
 sdks:
-  dns:
-    readme:
-    classes:
-      ZoneApi:
-        examples:
-          createZone:
-          deleteZone:
-          getListZones:
-          getZone:
-      CheckNameServersApi:
-        examples:
-          checkNameServer:
-      DnsRecordApi:
-        examples:
-          createDnsRecord:
-          deleteDnsRecord:
-          editDnsRecord:
-          getDnsRecord:
-          getListDnsRecords:
-  mail:
-    readme:
-    classes:
-      AccountsApi:
-        examples:
-          checkMailAvailable:
-          createMailACcount:
-          deleteMailAccount:
-          getAllMailAccounts:
-      AttachmentsApi:
-        examples:
-          downloadAttachments:
-          getAllAttachments:
-      EventApi:
-        examples:
-          getAllEvents:
-      ForwardApi:
-        examples:
-          createAddressForwarding:
-          deleteExtraEndpoint:
-          getListAddressForwarding:
-      InboundrulesApi:
-        examples:
-          addInboundRule:
-          deleteInboundRule:
-          getAllInboundRules:
-      MailsApi:
-        examples:
-          changeMailServerMode:
-          changeMailServerPlan:
-          checkDomainAvailable:
-          checkMailServerDnsStatus:
-          deleteMailServer:
-          getCountFreeMails:
-          getCountMails:
-          getMails:
-          getSingleMailServer:
-          postMails:
-          editMailServer:
-      MessagesApi:
-        examples:
-          generateTemporary:
-          getAllMails:
-          getSingleMail:
-          getSingleMailHtml:
-          sendMail:
-      SmtpApi:
-        examples:
-          deleteSmtpCredential:
-          generateCredentials:
-          getCredential:
-          revokeCredentials:
+  # dns:
+  #   readme:
+  #   classes:
+      # ZoneApi:
+      #   examples:
+      #     createZone:
+      #     deleteZone:
+      #     getListZones:
+      #     getZone:
+      # CheckNameServersApi:
+      #   examples:
+      #     checkNameServer:
+      # DnsRecordApi:
+      #   examples:
+      #     createDnsRecord:
+      #     deleteDnsRecord:
+      #     editDnsRecord:
+      #     getDnsRecord:
+      #     getListDnsRecords:
+  # mail:
+  #   readme:
+  #   classes:
+  #     AccountsApi:
+  #       examples:
+  #         checkMailAvailable:
+  #         createMailACcount:
+  #         deleteMailAccount:
+  #         getAllMailAccounts:
+  #     AttachmentsApi:
+  #       examples:
+  #         downloadAttachments:
+  #         getAllAttachments:
+  #     EventApi:
+  #       examples:
+  #         getAllEvents:
+  #     ForwardApi:
+  #       examples:
+  #         createAddressForwarding:
+  #         deleteExtraEndpoint:
+  #         getListAddressForwarding:
+  #     InboundrulesApi:
+  #       examples:
+  #         addInboundRule:
+  #         deleteInboundRule:
+  #         getAllInboundRules:
+  #     MailsApi:
+  #       examples:
+  #         changeMailServerMode:
+  #         changeMailServerPlan:
+  #         checkDomainAvailable:
+  #         checkMailServerDnsStatus:
+  #         deleteMailServer:
+  #         getCountFreeMails:
+  #         getCountMails:
+  #         getMails:
+  #         getSingleMailServer:
+  #         postMails:
+  #         editMailServer:
+  #     MessagesApi:
+  #       examples:
+  #         generateTemporary:
+  #         getAllMails:
+  #         getSingleMail:
+  #         getSingleMailHtml:
+  #         sendMail:
+  #     SmtpApi:
+  #       examples:
+  #         deleteSmtpCredential:
+  #         generateCredentials:
+  #         getCredential:
+  #         revokeCredentials:
   paas:
-    readme:
-    classes:
-      AppsApi:
-        examples:
-          changePlan:
-          createApp:
-          deleteAppByName:
-          getAppApplets:
-          getAppByName:
-          getAppLogs:
-          getAppReleases:
-          getApps:
-          restartApp:
-          turnApp:
-      DeployApi:
-        examples:
-          releasesDeploy:
-          sourcesDeploy:
-      DisksApi:
-        examples:
-          createBackup:
-          createDisk:
-          createFtp:
-          deleteDisk:
-          deleteFtp:
-          downloadBackup:
-          getBackups:
-          getDisks:
-          getFtps:
-          resizeDisk:
-      DomainsApi:
-        examples:
-          checkDomain:
-          createAppDomain:
-          deleteDomain:
-          disableSsl:
-          enableSsl:
-          getAppDomains:
-          redirectDomain:
-          setAppDomain:
-      ReportsApi:
-        examples:
-          getAppCpuReports:
-          getAppMemoryReports:
-          getAppNetworkReceiveReports:
-          getAppSummaryReports:
-          getNetworkTransmitReports:
-      SettingsApi:
-        examples:
-          defaultSubdomain:
-          ipStatic:
-          updateEnvs:
-  dbaas:
-    readme:
-    classes:
-      BackupsApi:
-        examples:
-          createBackup:
-          downloadBackup	:
-          getListBackups:
-      DatabasesApi:
-        examples:
-          changeControlPanel:
-          changePublicNetwork:
-          createDatabase:
-          deleteDatabase:
-          getDatabase:
-          getListDatabases:
-          resizeDatabase:
-          turnDatabase:
-      ReportsApi:
-        examples:
-          getDatabaseCpuReports:
-          getDatabaseMemoryReports:
-          getDatabaseNetworkReceiveReports:
-          getDatabaseNetworkTransmitReports:
-          getDatabaseSummaryReports:
-  object-storage:
-    readme:
-    classes:
-      BucketApi:
-        examples:
-          changeBucketAccess:
-          checkBucket:
-          createBucket:
-          destroyBucket:
-          getBuckets:
-          getListPreviousBuckets:
-          getMigrations:
-          getSingleBuckets:
-          migratingBuckets:
-          upgradeBucket:
-      FolderApi:
-        examples:
-          createFolder:
-          deleteFolder:
-      KeyApi:
-        examples:
-          createKey:
-          deleteKey:
-          getKey:
-          getListKeys:
-          revokeSecretKey:
-          updateKey:
-      MetricsApi:
-        examples:
-          getHisotricalMetrics:
-          getMetricsSummary:
-      ObjectApi:
-        examples:
-          deleteObject: 
-          downloadObject	:
-          getListObjects:
-          getStatObject:
-          uploadObject:
+    readme: | 
+      <?php
+      require_once(__DIR__ . '/vendor/autoload.php');
+
+      use OpenAPI\Client\Paas;
+
+      try {
+          $instance = new Paas('');
+          $result = $instance->AppsApi->getApps();
+          print_r("$result \n");
+      } catch (Exception $e) {
+          echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+      }
+    # classes:
+    #   AppsApi:
+    #     examples:
+  #         changePlan:
+  #         createApp:
+  #         deleteAppByName:
+  #         getAppApplets:
+  #         getAppByName:
+  #         getAppLogs:
+  #         getAppReleases:
+          # getApps: |
+          #   <?php
+          #   require_once(__DIR__ . '/vendor/autoload.php');
+
+          #   use OpenAPI\Client\Paas;
+
+          #   try {
+          #       $instance = new Paas('');
+          #       $result = $instance->AppsApi->getApps();
+          #       print_r("$result \n");
+          #   } catch (Exception $e) {
+          #       echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+          #   }
+  #         restartApp:
+  #         turnApp:
+  #     DeployApi:
+  #       examples:
+  #         releasesDeploy:
+  #         sourcesDeploy:
+  #     DisksApi:
+  #       examples:
+  #         createBackup:
+  #         createDisk:
+  #         createFtp:
+  #         deleteDisk:
+  #         deleteFtp:
+  #         downloadBackup:
+  #         getBackups:
+  #         getDisks:
+  #         getFtps:
+  #         resizeDisk:
+  #     DomainsApi:
+  #       examples:
+  #         checkDomain:
+  #         createAppDomain:
+  #         deleteDomain:
+  #         disableSsl:
+  #         enableSsl:
+  #         getAppDomains:
+  #         redirectDomain:
+  #         setAppDomain:
+  #     ReportsApi:
+  #       examples:
+  #         getAppCpuReports:
+  #         getAppMemoryReports:
+  #         getAppNetworkReceiveReports:
+  #         getAppSummaryReports:
+  #         getNetworkTransmitReports:
+  #     SettingsApi:
+  #       examples:
+  #         defaultSubdomain:
+  #         ipStatic:
+  #         updateEnvs:
+  # dbaas:
+  #   readme:
+  #   classes:
+  #     BackupsApi:
+  #       examples:
+  #         createBackup:
+  #         downloadBackup	:
+  #         getListBackups:
+  #     DatabasesApi:
+  #       examples:
+  #         changeControlPanel:
+  #         changePublicNetwork:
+  #         createDatabase:
+  #         deleteDatabase:
+  #         getDatabase:
+  #         getListDatabases:
+  #         resizeDatabase:
+  #         turnDatabase:
+  #     ReportsApi:
+  #       examples:
+  #         getDatabaseCpuReports:
+  #         getDatabaseMemoryReports:
+  #         getDatabaseNetworkReceiveReports:
+  #         getDatabaseNetworkTransmitReports:
+  #         getDatabaseSummaryReports:
+  # object-storage:
+  #   readme:
+  #   classes:
+  #     BucketApi:
+  #       examples:
+  #         changeBucketAccess:
+  #         checkBucket:
+  #         createBucket:
+  #         destroyBucket:
+  #         getBuckets:
+  #         getListPreviousBuckets:
+  #         getMigrations:
+  #         getSingleBuckets:
+  #         migratingBuckets:
+  #         upgradeBucket:
+  #     FolderApi:
+  #       examples:
+  #         createFolder:
+  #         deleteFolder:
+  #     KeyApi:
+  #       examples:
+  #         createKey:
+  #         deleteKey:
+  #         getKey:
+  #         getListKeys:
+  #         revokeSecretKey:
+  #         updateKey:
+  #     MetricsApi:
+  #       examples:
+  #         getHisotricalMetrics:
+  #         getMetricsSummary:
+  #     ObjectApi:
+  #       examples:
+  #         deleteObject: 
+  #         downloadObject	:
+  #         getListObjects:
+  #         getStatObject:
+  #         uploadObject:
