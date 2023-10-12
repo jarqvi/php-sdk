@@ -2,30 +2,30 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="./vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage processUncoveredFiles="true">
     <include>
-      <directory suffix=".php">./src/mail/lib/Api</directory>
-      <directory suffix=".php">./src/mail/lib/Model</directory>
-      <directory suffix=".php">./src/dns/lib/Api</directory>
-      <directory suffix=".php">./src/dns/lib/Model</directory>
-      <directory suffix=".php">./src/paas/lib/Api</directory>
-      <directory suffix=".php">./src/paas/lib/Model</directory>
-      <directory suffix=".php">./src/dbaas/lib/Api</directory>
-      <directory suffix=".php">./src/dbaas/lib/Model</directory>
-      <directory suffix=".php">./src/object-storage/lib/Api</directory>
-      <directory suffix=".php">./src/object-storage/lib/Model</directory>
+      <directory suffix=".php">./mail/lib/Api</directory>
+      <directory suffix=".php">./mail/lib/Model</directory>
+      <directory suffix=".php">./dns/lib/Api</directory>
+      <directory suffix=".php">./dns/lib/Model</directory>
+      <directory suffix=".php">./paas/lib/Api</directory>
+      <directory suffix=".php">./paas/lib/Model</directory>
+      <directory suffix=".php">./dbaas/lib/Api</directory>
+      <directory suffix=".php">./dbaas/lib/Model</directory>
+      <directory suffix=".php">./object-storage/lib/Api</directory>
+      <directory suffix=".php">./object-storage/lib/Model</directory>
     </include>
   </coverage>
   <testsuites>
     <testsuite name="tests">
-      <directory>./src/mail/test/Api</directory>
-      <directory>./src/mail/test/Model</directory>
-      <directory>./src/dns/test/Api</directory>
-      <directory>./src/dns/test/Model</directory>
-      <directory>./src/paas/test/Api</directory>
-      <directory>./src/paas/test/Model</directory>
-      <directory>./src/dbaas/test/Api</directory>
-      <directory>./src/dbaas/test/Model</directory>
-      <directory>./src/object-storage/test/Api</directory>
-      <directory>./src/object-storage/test/Model</directory>
+      <directory>./mail/test/Api</directory>
+      <directory>./mail/test/Model</directory>
+      <directory>./dns/test/Api</directory>
+      <directory>./dns/test/Model</directory>
+      <directory>./paas/test/Api</directory>
+      <directory>./paas/test/Model</directory>
+      <directory>./dbaas/test/Api</directory>
+      <directory>./dbaas/test/Model</directory>
+      <directory>./object-storage/test/Api</directory>
+      <directory>./object-storage/test/Model</directory>
     </testsuite>
   </testsuites>
   <php>

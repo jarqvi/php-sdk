@@ -1,5 +1,6 @@
 {
-    "description": "Manage your apps using our API  [wss://api.iran.liara.ir?token=<api-token>&cmd=/bin/bash&project_id=<project-id>]( wss://api.iran.liara.ir?token=<api-token>&cmd=/bin/bash&project_id=<project-id>)  Parameters: - `token`: Your api token in liara - `cmd`: By default /bin/bash - `project_id`: The id of your project in liara  This `WebSocket` endpoint allows `real-time` communication with the projects service hosted at `Liara` You can use `WebSocket protocols` to send and receive data, enabling efficient and low-latency interactions with the projects",
+    "name": "jarqvi/openapi-client",
+    "description": "OpenAPI Client",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -29,6 +30,7 @@
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^3.5"
     },
+    "type": "library",
     "autoload": {
         "psr-4": { "OpenAPI\\Client\\" : [
             "dns/lib/",
