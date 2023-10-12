@@ -61,27 +61,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$plan = new \OpenAPI\Client\Model\ChangePlanRequest(); // \OpenAPI\Client\Model\ChangePlanRequest | The plan of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->changePlan($name, $plan);
+    $instance = new Paas('');
+    $result = $instance->AppsApi->getApps();
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->changePlan: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
