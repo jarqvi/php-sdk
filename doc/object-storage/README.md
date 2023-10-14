@@ -48,28 +48,15 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$permission = 'permission_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->changeBucketAccess($bucket, $permission);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->getBuckets();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->changeBucketAccess: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
 
 ```

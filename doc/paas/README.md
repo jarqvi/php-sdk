@@ -64,7 +64,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 use OpenAPI\Client\Paas;
 
 try {
-    $instance = new Paas('');
+    $instance = new Paas('YOUR-API-TOKEN');
     $result = $instance->AppsApi->getApps();
     print_r("$result \n");
 } catch (Exception $e) {

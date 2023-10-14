@@ -1,25 +1,51 @@
 sdks:
-  # dns:
-  #   readme:
+  dns:
+    readme: |
+      <?php
+      require_once(__DIR__ . '/vendor/autoload.php');
+
+      use OpenAPI\Client\Dns;
+
+      try {
+          $instance = new Dns('YOUR-API-TOKEN');
+          $result = $instance->CheckNameServersApi->checkNameServer('example.com', 'text/plain');
+          
+          print_r("$result \n");
+      } catch (Exception $e) {
+          echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+      }
   #   classes:
-      # ZoneApi:
-      #   examples:
-      #     createZone:
-      #     deleteZone:
-      #     getListZones:
-      #     getZone:
-      # CheckNameServersApi:
-      #   examples:
-      #     checkNameServer:
-      # DnsRecordApi:
-      #   examples:
-      #     createDnsRecord:
-      #     deleteDnsRecord:
-      #     editDnsRecord:
-      #     getDnsRecord:
-      #     getListDnsRecords:
-  # mail:
-  #   readme:
+  #     ZoneApi:
+  #       examples:
+  #         createZone:
+  #         deleteZone:
+  #         getListZones:
+  #         getZone:
+  #     CheckNameServersApi:
+  #       examples:
+  #         checkNameServer:
+  #     DnsRecordApi:
+  #       examples:
+  #         createDnsRecord:
+  #         deleteDnsRecord:
+  #         editDnsRecord:
+  #         getDnsRecord:
+  #         getListDnsRecords:
+  mail:
+    readme: |
+      <?php
+      require_once(__DIR__ . '/vendor/autoload.php');
+
+      use OpenAPI\Client\Mail;
+
+      try {
+          $instance = new Mail('YOUR-API-TOKEN');
+          $result = $instance->MailsApi->getMails();
+
+          print_r("$result \n");
+      } catch (Exception $e) {
+          echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+      }
   #   classes:
   #     AccountsApi:
   #       examples:
@@ -78,7 +104,7 @@ sdks:
       use OpenAPI\Client\Paas;
 
       try {
-          $instance = new Paas('');
+          $instance = new Paas('YOUR-API-TOKEN');
           $result = $instance->AppsApi->getApps();
           print_r("$result \n");
       } catch (Exception $e) {
@@ -87,26 +113,26 @@ sdks:
     # classes:
     #   AppsApi:
     #     examples:
-  #         changePlan:
-  #         createApp:
-  #         deleteAppByName:
-  #         getAppApplets:
-  #         getAppByName:
-  #         getAppLogs:
-  #         getAppReleases:
-          # getApps: |
-          #   <?php
-          #   require_once(__DIR__ . '/vendor/autoload.php');
+    #       changePlan:
+    #       createApp:
+    #       deleteAppByName:
+    #       getAppApplets:
+    #       getAppByName:
+    #       getAppLogs:
+    #       getAppReleases:
+    #       getApps: |
+    #         <?php
+    #         require_once(__DIR__ . '/vendor/autoload.php');
 
-          #   use OpenAPI\Client\Paas;
+    #         use OpenAPI\Client\Paas;
 
-          #   try {
-          #       $instance = new Paas('');
-          #       $result = $instance->AppsApi->getApps();
-          #       print_r("$result \n");
-          #   } catch (Exception $e) {
-          #       echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
-          #   }
+    #         try {
+    #             $instance = new Paas('YOUR-API-TOKEN');
+    #             $result = $instance->AppsApi->getApps();
+    #             print_r("$result \n");
+    #         } catch (Exception $e) {
+    #             echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+    #         }
   #         restartApp:
   #         turnApp:
   #     DeployApi:
@@ -147,8 +173,21 @@ sdks:
   #         defaultSubdomain:
   #         ipStatic:
   #         updateEnvs:
-  # dbaas:
-  #   readme:
+  dbaas:
+    readme: | 
+      <?php
+      require_once(__DIR__ . '/vendor/autoload.php');
+
+      use OpenAPI\Client\Dbaas;
+
+      try {
+          $instance = new Dbaas('YOUR-API-TOKEN');
+          $result = $instance->DatabasesApi->getListDatabases();
+
+          print_r("$result \n");
+      } catch (Exception $e) {
+          echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+      }
   #   classes:
   #     BackupsApi:
   #       examples:
@@ -172,8 +211,21 @@ sdks:
   #         getDatabaseNetworkReceiveReports:
   #         getDatabaseNetworkTransmitReports:
   #         getDatabaseSummaryReports:
-  # object-storage:
-  #   readme:
+  object-storage:
+    readme: |
+      <?php
+      require_once(__DIR__ . '/vendor/autoload.php');
+
+      use OpenAPI\Client\ObjectStorage;
+
+      try {
+          $instance = new ObjectStorage('YOUR-API-TOKEN');
+          $result = $instance->BucketApi->getBuckets();
+
+          print_r("$result \n");
+      } catch (Exception $e) {
+          echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
+      }
   #   classes:
   #     BucketApi:
   #       examples:
