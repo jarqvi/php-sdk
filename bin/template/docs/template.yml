@@ -1312,16 +1312,131 @@ sdks:
     classes:
       BackupsApi:
         examples:
-          createBackup:
-          downloadBackup	:
-          getListBackups:
+          createBackup: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->BackupsApi->createBackup('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          downloadBackup: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->BackupsApi->downloadBackup('id-example', 'name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getListBackups: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->BackupsApi->getListBackups('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       DatabasesApi:
         examples:
-          changeControlPanel:
-          changePublicNetwork:
-          createDatabase:
-          deleteDatabase:
-          getDatabase:
+          changeControlPanel: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->DatabasesApi->changeControlPanel('id-example', 'status-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          changePublicNetwork: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->DatabasesApi->changePublicNetwork('id-example', 'status-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createDatabase: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+
+                $body = new \OpenAPI\Client\Model\CreateDatabases();
+                $body->setHostname('hostname-example');
+                $body->setOptions([
+                    'standaloneReplicaSet' => true
+                ]);
+                $body->setPublicNetwork(true);
+                $body->setType('type-example');
+                $body->setPlanId('planID-example');
+                $body->setVersion('version-example');
+
+                $result = $instance->DatabasesApi->createDatabase($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteDatabase: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->DatabasesApi->deleteDatabase('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDatabase: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->DatabasesApi->getDatabase('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
           getListDatabases: | 
             <?php
             require_once(__DIR__ . '/vendor/autoload.php');
@@ -1336,15 +1451,111 @@ sdks:
             } catch (Exception $e) {
                 echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
             }
-          resizeDatabase:
-          turnDatabase:
+          resizeDatabase: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\ResizeDatabaseRequest();
+                $body->setDisk(true);
+                $body->setPlanId('plan-id-example');
+                $result = $instance->DatabasesApi->resizeDatabase('id-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          turnDatabase: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\TurnDatabaseRequest();
+                $body->setScale(1);
+                $result = $instance->DatabasesApi->turnDatabase('id-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       ReportsApi:
         examples:
-          getDatabaseCpuReports:
-          getDatabaseMemoryReports:
-          getDatabaseNetworkReceiveReports:
-          getDatabaseNetworkTransmitReports:
-          getDatabaseSummaryReports:
+          getDatabaseCpuReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getDatabaseCpuReports('id-example', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDatabaseMemoryReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getDatabaseMemoryReports('id-example', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDatabaseNetworkReceiveReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getDatabaseNetworkReceiveReports('id-example', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDatabaseNetworkTransmitReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getDatabaseNetworkTransmitReports('id-example', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDatabaseSummaryReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Dbaas;
+
+            try {
+                $instance = new Dbaas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getDatabaseSummaryReports('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
   object-storage:
     readme: |
       <?php
