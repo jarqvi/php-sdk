@@ -1574,10 +1574,66 @@ sdks:
     classes:
       BucketApi:
         examples:
-          changeBucketAccess:
-          checkBucket:
-          createBucket:
-          destroyBucket:
+          changeBucketAccess: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->changeBucketAccess('bucket-example', 'private'); // or public
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          checkBucket: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->checkBucket('bucket-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createBucket: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateBucket();
+                $body->setName('bucket-example');
+                $body->setPlan('plan-example');
+                $body->setPermission('permission-example');
+                $result = $instance->BucketApi->createBucket($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          destroyBucket: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->destroyBucket('bucket-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
           getBuckets: |
             <?php
             require_once(__DIR__ . '/vendor/autoload.php');
@@ -1592,31 +1648,309 @@ sdks:
             } catch (Exception $e) {
                 echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
             }
-          getListPreviousBuckets:
-          getMigrations:
-          getSingleBuckets:
-          migratingBuckets:
-          upgradeBucket:
+          getListPreviousBuckets: |
+            ?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->getListPreviousBuckets();
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getMigrations: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->getMigrations();
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getSingleBuckets: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->getSingleBuckets('bucket-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          migratingBuckets: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\MigrateBucket();
+                $body->setFrom('from-example');
+                $body->setTo('to-example');
+                $body->setPath('path-example');
+                $result = $instance->BucketApi->migratingBuckets($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          upgradeBucket: | 
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->BucketApi->upgradeBucket('bucket-example', 'plan-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       FolderApi:
         examples:
-          createFolder:
-          deleteFolder:
+          createFolder: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateFolder();
+                $body->setPath('/example');
+                $result = $instance->FolderApi->createFolder('bucket-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteFolder: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->FolderApi->deleteFolder('bucket-example', '/example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       KeyApi:
         examples:
-          createKey:
-          deleteKey:
-          getKey:
-          getListKeys:
-          revokeSecretKey:
-          updateKey:
+          createKey: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateKey();
+                $body->setDescription('example-description');
+                $body->setBuckets([
+                    'example-bucket-1',
+                    'example-bucket-2',
+                ]);
+                $result = $instance->KeyApi->createKey($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteKey: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->KeyApi->deleteKey('key-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getKey: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->KeyApi->getKey('key-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getListKeys: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->KeyApi->getListKeys();
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          revokeSecretKey: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->KeyApi->revokeSecretKey('key-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          updateKey: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateKey();
+                $body->setDescription('example-description');
+                $body->setBuckets([
+                    'example-bucket-1',
+                    'example-bucket-2',
+                ]);
+                $result = $instance->KeyApi->updateKey('key-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       MetricsApi:
         examples:
-          getHisotricalMetrics:
-          getMetricsSummary:
+          getHisotricalMetrics: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->MetricsApi->getHisotricalMetrics('key-example', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getMetricsSummary: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->MetricsApi->getMetricsSummary('key-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       ObjectApi:
         examples:
-          deleteObject: 
-          downloadObject	:
-          getListObjects:
-          getStatObject:
-          uploadObject:
+          deleteObject: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->ObjectApi->deleteObject('bucket-example', 'prefix-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          downloadObject: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->ObjectApi->downloadObject('bucket-example', 'object-example', '2 days 7 hours 45 minutes');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getListObjects: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->ObjectApi->getListObjects('bucket-example', 'prefix-example', 10, 1);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getStatObject: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->ObjectApi->getStatObject('bucket-example', 'object-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          uploadObject: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\ObjectStorage;
+
+            try {
+                $instance = new ObjectStorage('YOUR-API-TOKEN');
+                $result = $instance->ObjectApi->uploadObject('bucket-example', 'object-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
