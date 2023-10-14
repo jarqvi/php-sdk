@@ -199,36 +199,290 @@ sdks:
     classes:
       AccountsApi:
         examples:
-          checkMailAvailable:
-          createMailACcount:
-          deleteMailAccount:
-          getAllMailAccounts:
+          checkMailAvailable: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->AccountsApi->checkMailAvailable('example-id', 'example-account');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createMailACcount: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model5();
+                $body->setName('example-name');
+                $result = $instance->AccountsApi->createMailACcount('example-id', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteMailAccount: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->AccountsApi->deleteMailAccount('example-id', 'account-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAllMailAccounts: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->AccountsApi->getAllMailAccounts('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       AttachmentsApi:
         examples:
-          downloadAttachments:
-          getAllAttachments:
+          downloadAttachments: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->AttachmentsApi->downloadAttachments('example-id', 'message-id', 'attachment-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAllAttachments: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->AttachmentsApi->getAllAttachments('example-id', 'message-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       EventApi:
         examples:
-          getAllEvents:
+          getAllEvents: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->EventApi->getAllEvents('example-id', 'message-id', 1, 15);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       ForwardApi:
         examples:
-          createAddressForwarding:
-          deleteExtraEndpoint:
-          getListAddressForwarding:
+          createAddressForwarding: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model6();
+                $body->setAddress('example-address');
+                $result = $instance->ForwardApi->createAddressForwarding('example-id', 'account-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteExtraEndpoint: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->ForwardApi->deleteExtraEndpoint('example-id', 'account-id', 'address-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getListAddressForwarding: | 
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->ForwardApi->getListAddressForwarding('example-id', 'account-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       InboundrulesApi:
         examples:
-          addInboundRule:
-          deleteInboundRule:
-          getAllInboundRules:
+          addInboundRule: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model11();
+                $body->setRule('example-rule');
+                $result = $instance->InboundrulesApi->addInboundRule('example-id', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteInboundRule: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->InboundrulesApi->deleteInboundRule('example-id', 'inboundrule-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAllInboundRules: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->InboundrulesApi->getAllInboundRules('example-id',);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       MailsApi:
         examples:
-          changeMailServerMode:
-          changeMailServerPlan:
-          checkDomainAvailable:
-          checkMailServerDnsStatus:
-          deleteMailServer:
-          getCountFreeMails:
-          getCountMails:
+          changeMailServerPlan: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model10();
+                $body->setPlan('example-plan');
+                $result = $instance->MailsApi->changeMailServerPlan('example-id',);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          checkDomainAvailable: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->checkDomainAvailable('example.com');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          checkMailServerDnsStatus: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->checkMailServerDnsStatus('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteMailServer: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->deleteMailServer('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getCountFreeMails: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->getCountFreeMails('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getCountMails: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->getCountMails('example-id', 30);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
           getMails: |
             <?php
             require_once(__DIR__ . '/vendor/autoload.php');
@@ -243,22 +497,205 @@ sdks:
             } catch (Exception $e) {
                 echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
             }
-          getSingleMailServer:
-          postMails:
-          editMailServer:
+          getSingleMailServer: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MailsApi->getSingleMailServer('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          postMails: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model1();
+                $body->setDomain('example.com');
+                $body->setPlan('example-plan');
+                $body->setMode('DEV');
+                $result = $instance->MailsApi->postMails($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          editMailServer: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model8();
+                $body->setMode('DEV');
+                $body->setInboundSpamThreshold(0);
+                $result = $instance->MailsApi->editMailServer($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       MessagesApi:
         examples:
-          generateTemporary:
-          getAllMails:
-          getSingleMail:
-          getSingleMailHtml:
-          sendMail:
+          generateTemporary: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MessagesApi->generateTemporary('example-id', 'message-id', 1);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAllMails: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MessagesApi->getAllMails('example-id', 1, 15, 'incoming', 'state', 'subject', 'from', 'to');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getSingleMail: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MessagesApi->getSingleMail('example-id', 'message-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getSingleMailHtml: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->MessagesApi->getSingleMailHtml('example-id', 'message-id', 'token');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          sendMail: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model3();
+
+                $body->setHtml('example-html');
+                $body->setFrom('example-from');
+                $body->setTo('example-to');
+                $body->setSubject('example-subject');
+                $body->setText('example-text');
+                $body->setReplyto('example-replyto');
+                $body->setAttachments([
+                    [
+                        'name' => 'example-name',
+                        'content_type' => 'example-content_type',
+                        'data' => 'example-data'
+                    ]
+                ]);
+
+                $result = $instance->MessagesApi->sendMail('example-id', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       SmtpApi:
         examples:
-          deleteSmtpCredential:
-          generateCredentials:
-          getCredential:
-          revokeCredentials:
+          deleteSmtpCredential: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->SmtpApi->deleteSmtpCredential('example-id', 'username-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          generateCredentials: |  
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model4();
+                $body->setDescription('example-description');
+                $result = $instance->SmtpApi->generateCredentials('example-id', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getCredential: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $result = $instance->SmtpApi->getCredential('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          revokeCredentials: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Mail;
+
+            try {
+                $instance = new Mail('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\Model9();
+                $body->setUsername('example-username');
+                $result = $instance->SmtpApi->revokeCredentials('example-id', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
   paas:
     readme: | 
       <?php
