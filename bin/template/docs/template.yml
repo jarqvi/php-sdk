@@ -713,13 +713,97 @@ sdks:
     classes:
       AppsApi:
         examples:
-          changePlan:
-          createApp:
-          deleteAppByName:
-          getAppApplets:
+          changePlan: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\ChangePlanRequest();
+                $body->setPlanId('example-plan-id');
+                $result = $instance->AppsApi->changePlan('name-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createApp: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateApp();
+                $body->setPlanId('example-plan-id');
+                $body->setName('example-name');
+                $body->setPlatform('example-platform');
+                $result = $instance->AppsApi->createApp($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteAppByName: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->AppsApi->deleteAppByName('name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppApplets: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->AppsApi->getAppApplets('name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
           getAppByName:
-          getAppLogs:
-          getAppReleases:
+          getAppLogs: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->AppsApi->getAppByName('name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppReleases: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->AppsApi->getAppReleases('name-example', 1, 15);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
           getApps: |
             <?php
             require_once(__DIR__ . '/vendor/autoload.php');
@@ -733,46 +817,483 @@ sdks:
             } catch (Exception $e) {
                 echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
             }
-          restartApp:
-          turnApp:
+          restartApp: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->AppsApi->restartApp('name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          turnApp: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new OpenAPI\Client\Model\TurnAppRequest();
+                $body->setScale(0);
+                $result = $instance->AppsApi->turnApp('name-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       DeployApi:
         examples:
-          releasesDeploy:
-          sourcesDeploy:
+          releasesDeploy: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\DeployReleases();
+                $body->setSourceId('source-id-example');
+                $result = $instance->DeployApi->releasesDeploy('name-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          sourcesDeploy: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DeployApi->sourcesDeploy('name-example', './app.tar.xz');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       DisksApi:
         examples:
-          createBackup:
-          createDisk:
-          createFtp:
-          deleteDisk:
-          deleteFtp:
-          downloadBackup:
-          getBackups:
-          getDisks:
-          getFtps:
-          resizeDisk:
+          createBackup: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->createBackup('id-example', 'name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createDisk: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateDiskRequest();
+                $body->setName('name-example');
+                $body->setSize('size-example');
+                $result = $instance->DisksApi->createDisk('id-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createFtp: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateFtpRequest();
+                $body->setUsername('name-example');
+                $body->setReadOnly(true);
+                $result = $instance->DisksApi->createFtp('name-example', 'dname-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteDisk: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->deleteDisk('id-example', 'name-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteFtp: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->deleteFtp('fname-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          downloadBackup: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->downloadBackup('id-example', 'dname-example', 'bname-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getBackups: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->getBackups('id-example', 'dname-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getDisks: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->getDisks('id-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getFtps: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DisksApi->getFtps('name-example', 'dname-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          resizeDisk: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\ResizeDiskRequest();
+                $body->setSize(10);
+                $result = $instance->DisksApi->resizeDisk('name-example', 'dname-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       DomainsApi:
         examples:
-          checkDomain:
-          createAppDomain:
-          deleteDomain:
-          disableSsl:
-          enableSsl:
-          getAppDomains:
-          redirectDomain:
-          setAppDomain:
+          checkDomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DomainsApi->checkDomain('example.com');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          createAppDomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\CreateAppDomainRequest();
+                $body->setName('example.com');
+                $body->setProject('project-name');
+                $body->setType('PROJECT');
+
+                $result = $instance->DomainsApi->createAppDomain('example.com');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          deleteDomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DomainsApi->deleteDomain('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          disableSsl: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DomainsApi->disableSsl('example-id');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          enableSsl: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\EnableSslRequest();
+                $body->setDomain('domain-example');
+                $result = $instance->DomainsApi->enableSsl($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppDomains: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->DomainsApi->getAppDomains('project-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          redirectDomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\RedirectDomainRequest();
+                $body->setRedirectTo('example.com');
+                $body->setRedirectStatus(301); // or 302
+                $result = $instance->DomainsApi->redirectDomain('id-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          setAppDomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\SetAppDomainRequest();
+                $body->setDomainID('domain-example');
+                $body->setProjectID('project-example');
+                $result = $instance->DomainsApi->setAppDomain('id-example', $body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       ReportsApi:
         examples:
-          getAppCpuReports:
-          getAppMemoryReports:
-          getAppNetworkReceiveReports:
-          getAppSummaryReports:
-          getNetworkTransmitReports:
+          getAppCpuReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getAppCpuReports('example-name', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppMemoryReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getAppMemoryReports('example-name', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppNetworkReceiveReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getAppNetworkReceiveReports('example-name', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getAppSummaryReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getAppSummaryReports('example-name');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          getNetworkTransmitReports: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->ReportsApi->getNetworkTransmitReports('example-name', 1697279296);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
       SettingsApi:
         examples:
-          defaultSubdomain:
-          ipStatic:
-          updateEnvs:
+          defaultSubdomain: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->SettingsApi->defaultSubdomain('id-name', 'status-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          ipStatic: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->SettingsApi->ipStatic('id-name', 'status-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          updateEnvs: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $body = new \OpenAPI\Client\Model\UpdateEnvs();
+                $body->setProject('project-example');
+                $body->setVariables([
+                    [
+                        'key' => 'key-example',
+                        'value' => 'value-example'
+                    ]
+                ]);
+                $result = $instance->SettingsApi->updateEnvs($body);
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
+          zeroDowntime: |
+            <?php
+            require_once(__DIR__ . '/vendor/autoload.php');
+
+            use OpenAPI\Client\Paas;
+
+            try {
+                $instance = new Paas('YOUR-API-TOKEN');
+                $result = $instance->SettingsApi->zeroDowntime('id-example', 'status-example');
+
+                print_r("$result \n");
+            } catch (Exception $e) {
+                echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
+            }
   dbaas:
     readme: | 
       <?php
