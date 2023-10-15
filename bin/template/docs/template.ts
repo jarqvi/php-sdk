@@ -16,15 +16,20 @@ interface ITemplate {
 
 function readMdFile(filePath: string, method: string, example: string) {
     const mdFile = fs.readFileSync(filePath, 'utf8');
+    const rx = /```([a-zA-Z]*)\n([\s\S]+?)```/;
 
-    const indexMethod = mdFile.indexOf(`# **${method}**`);
+    const indexMethod = mdFile.indexOf(`## \`${method}()\``);
     const sectionMethod = mdFile.substring(indexMethod);
-    
-    const regexMethod = /```([a-zA-Z]*)\n([\s\S]+?)```/;
-    const resolveMethod = sectionMethod.replace(regexMethod, '```typescript\n' + example + '\n```');
 
+    const resolveMethod = sectionMethod.replace(rx, '');
     const newMdFile = mdFile.replace(sectionMethod, resolveMethod);
-    fs.writeFileSync(filePath, newMdFile);
+
+    const indexExample = newMdFile.indexOf(`## \`${method}()\``);
+    const sectionExample = newMdFile.substring(indexExample);
+    const resolveExample = sectionExample.replace(rx, '```php\n' + example + '\n```');
+    const resultNewMdFile = newMdFile.replace(sectionExample, resolveExample);
+
+    fs.writeFileSync(filePath, resultNewMdFile);
 }
 
 function readTemplate() {
@@ -44,6 +49,14 @@ function readTemplate() {
 
             const newReadme = readme.replace(sectionOfReadme, resolveReadme);
             fs.writeFileSync(filePath, newReadme);
+
+            for (const apiClass in template.sdks[sdk].classes) {
+                const examples = template.sdks[sdk].classes[apiClass].examples;
+                
+                for (const example in examples) {
+                    const result = readMdFile(`../../../doc/${sdk}/docs/Api/${apiClass}.md`, example, examples[example]);
+                }
+            }
         }
     }
 }
