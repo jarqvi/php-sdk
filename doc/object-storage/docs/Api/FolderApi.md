@@ -10,9 +10,7 @@ All URIs are relative to https://storage-service.iran.liara.ir, except if the op
 
 ## `createFolder()`
 
-```php
-createFolder($bucket, $body): \OpenAPI\Client\Model\CreateFolder201Response
-```
+
 
 Create Folder
 
@@ -24,28 +22,19 @@ Create Folder in Bucket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\FolderApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$body = new \OpenAPI\Client\Model\CreateFolder(); // \OpenAPI\Client\Model\CreateFolder
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->createFolder($bucket, $body);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateFolder();
+    $body->setPath('/example');
+    $result = $instance->FolderApi->createFolder('bucket-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling FolderApi->createFolder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -74,9 +63,7 @@ try {
 
 ## `deleteFolder()`
 
-```php
-deleteFolder($bucket, $path)
-```
+
 
 Delete Folder
 
@@ -88,27 +75,17 @@ Delete Folder in Bucket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\FolderApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$path = 'path_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->deleteFolder($bucket, $path);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->FolderApi->deleteFolder('bucket-example', '/example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling FolderApi->deleteFolder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

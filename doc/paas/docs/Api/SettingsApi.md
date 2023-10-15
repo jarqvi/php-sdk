@@ -12,9 +12,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `defaultSubdomain()`
 
-```php
-defaultSubdomain($id, $status)
-```
+
 
 Default subdomain
 
@@ -26,27 +24,17 @@ default subdomain that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SettingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$status = 'status_example'; // string | disable or enable
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->defaultSubdomain($id, $status);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->SettingsApi->defaultSubdomain('id-name', 'status-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SettingsApi->defaultSubdomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -75,9 +63,7 @@ void (empty response body)
 
 ## `ipStatic()`
 
-```php
-ipStatic($id, $status): \OpenAPI\Client\Model\IpStatic200Response
-```
+
 
 IP static
 
@@ -89,28 +75,17 @@ ip static that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SettingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$status = 'status_example'; // string | disable or enable
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->ipStatic($id, $status);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->SettingsApi->ipStatic('id-name', 'status-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SettingsApi->ipStatic: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -139,9 +114,7 @@ try {
 
 ## `updateEnvs()`
 
-```php
-updateEnvs($update_envs): \OpenAPI\Client\Model\UpdateEnvs200Response
-```
+
 
 Update envs
 
@@ -153,27 +126,25 @@ update envs that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SettingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$update_envs = new \OpenAPI\Client\Model\UpdateEnvs(); // \OpenAPI\Client\Model\UpdateEnvs
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->updateEnvs($update_envs);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\UpdateEnvs();
+    $body->setProject('project-example');
+    $body->setVariables([
+        [
+            'key' => 'key-example',
+            'value' => 'value-example'
+        ]
+    ]);
+    $result = $instance->SettingsApi->updateEnvs($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SettingsApi->updateEnvs: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -201,9 +172,7 @@ try {
 
 ## `zeroDowntime()`
 
-```php
-zeroDowntime($id, $status)
-```
+
 
 Zero downtime
 
@@ -215,27 +184,17 @@ zero downtime that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SettingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$status = 'status_example'; // string | disable or enable
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->zeroDowntime($id, $status);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->SettingsApi->zeroDowntime('id-example', 'status-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SettingsApi->zeroDowntime: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

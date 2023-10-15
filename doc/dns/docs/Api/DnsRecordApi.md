@@ -13,9 +13,7 @@ All URIs are relative to https://dns-service.iran.liara.ir, except if the operat
 
 ## `createDnsRecord()`
 
-```php
-createDnsRecord($zone, $dns_record): \OpenAPI\Client\Model\DnsRecordResponse
-```
+
 
 Create dns record
 
@@ -27,28 +25,26 @@ Creates a new dns record, returns the dns record on creation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DnsRecordApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to delete
-$dns_record = new \OpenAPI\Client\Model\DnsRecord(); // \OpenAPI\Client\Model\DnsRecord
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->createDnsRecord($zone, $dns_record);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\DnsRecord();
+    $body->setName('example-record');
+    $body->setType('A');
+    $body->setTtl('7200');
+    $body->setContents([
+        [
+            "ip" => "1.2.3.4"
+        ]
+    ]);
+    $result = $instance->DnsRecordApi->createDnsRecord('example.com', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
     echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -77,9 +73,7 @@ try {
 
 ## `deleteDnsRecord()`
 
-```php
-deleteDnsRecord($zone, $id)
-```
+
 
 delete dns record
 
@@ -91,27 +85,17 @@ Delete dns record from this zone
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DnsRecordApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to delete dns record
-$id = 'id_example'; // string | The id of dns record to delete its data
+use OpenAPI\Client\Dns;
 
 try {
-    $apiInstance->deleteDnsRecord($zone, $id);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->DnsRecordApi->deleteDnsRecord('example.com', 'id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DnsRecordApi->deleteDnsRecord: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -140,9 +124,7 @@ void (empty response body)
 
 ## `editDnsRecord()`
 
-```php
-editDnsRecord($zone, $id, $dns_record): \OpenAPI\Client\Model\DnsRecordResponse
-```
+
 
 edit dns record
 
@@ -154,29 +136,26 @@ you can not edit type of dns record
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DnsRecordApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to edit dns record
-$id = 'id_example'; // string | The id of dns record to edit its data
-$dns_record = new \OpenAPI\Client\Model\DnsRecord(); // \OpenAPI\Client\Model\DnsRecord
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->editDnsRecord($zone, $id, $dns_record);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\DnsRecord();
+    $body->setName('example-record');
+    $body->setType('A');
+    $body->setTtl('7200');
+    $body->setContents([
+        [
+            "ip" => "1.2.3.4"
+        ]
+    ]);
+    $result = $instance->DnsRecordApi->editDnsRecord('example.com', 'id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DnsRecordApi->editDnsRecord: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -206,9 +185,7 @@ try {
 
 ## `getDnsRecord()`
 
-```php
-getDnsRecord($zone, $id): \OpenAPI\Client\Model\DnsRecordResponse
-```
+
 
 Get dns record
 
@@ -220,28 +197,17 @@ Get Dns Record data on this zone
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DnsRecordApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to see dns record
-$id = 'id_example'; // string | The id of dns record to see its data
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->getDnsRecord($zone, $id);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->DnsRecordApi->getDnsRecord('example.com', 'id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DnsRecordApi->getDnsRecord: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -270,9 +236,7 @@ try {
 
 ## `getListDnsRecords()`
 
-```php
-getListDnsRecords($zone): \OpenAPI\Client\Model\AllDnsRecordResponse
-```
+
 
 Get all dns record
 
@@ -284,27 +248,17 @@ Get all Dns Records on this zone
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DnsRecordApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to see all dns records
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->getListDnsRecords($zone);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->DnsRecordApi->getListDnsRecords('example.com');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DnsRecordApi->getListDnsRecords: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

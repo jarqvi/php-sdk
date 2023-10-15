@@ -13,9 +13,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `getAppCpuReports()`
 
-```php
-getAppCpuReports($name, $since): \OpenAPI\Client\Model\Reports
-```
+
 
 Get cpu reports of app
 
@@ -27,28 +25,17 @@ get cpu reports of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$since = 3.4; // float | The since of your cpu reports
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppCpuReports($name, $since);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->ReportsApi->getAppCpuReports('example-name', 1697279296);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ReportsApi->getAppCpuReports: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -77,9 +64,7 @@ try {
 
 ## `getAppMemoryReports()`
 
-```php
-getAppMemoryReports($name, $since): \OpenAPI\Client\Model\Reports
-```
+
 
 Get memory reports of app
 
@@ -91,28 +76,17 @@ get memory reports of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$since = 3.4; // float | The since of your memory reports
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppMemoryReports($name, $since);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->ReportsApi->getAppMemoryReports('example-name', 1697279296);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ReportsApi->getAppMemoryReports: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -141,9 +115,7 @@ try {
 
 ## `getAppNetworkReceiveReports()`
 
-```php
-getAppNetworkReceiveReports($name, $since): \OpenAPI\Client\Model\Reports
-```
+
 
 Get network-receive reports of app
 
@@ -155,28 +127,17 @@ get network-receive reports of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$since = 3.4; // float | The since of your network-receive reports
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppNetworkReceiveReports($name, $since);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->ReportsApi->getAppNetworkReceiveReports('example-name', 1697279296);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ReportsApi->getAppNetworkReceiveReports: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -205,9 +166,7 @@ try {
 
 ## `getAppSummaryReports()`
 
-```php
-getAppSummaryReports($name): \OpenAPI\Client\Model\GetAppSummaryReports200Response
-```
+
 
 Get summary reports of app
 
@@ -219,27 +178,17 @@ get summary reports of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppSummaryReports($name);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->ReportsApi->getAppSummaryReports('example-name');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ReportsApi->getAppSummaryReports: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -267,9 +216,7 @@ try {
 
 ## `getNetworkTransmitReports()`
 
-```php
-getNetworkTransmitReports($name, $since): \OpenAPI\Client\Model\Reports
-```
+
 
 Get network-transmit reports of app
 
@@ -281,28 +228,17 @@ get network-transmit reports of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$since = 3.4; // float | The since of your network-transmit reports
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getNetworkTransmitReports($name, $since);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->ReportsApi->getNetworkTransmitReports('example-name', 1697279296);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ReportsApi->getNetworkTransmitReports: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

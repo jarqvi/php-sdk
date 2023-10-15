@@ -10,9 +10,7 @@ All URIs are relative to https://storage-service.iran.liara.ir, except if the op
 
 ## `getHisotricalMetrics()`
 
-```php
-getHisotricalMetrics($bucket, $since): \OpenAPI\Client\Model\GetHisotricalMetrics200Response
-```
+
 
 hisotrical metrics
 
@@ -22,28 +20,17 @@ hisotrical metrics
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MetricsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$since = 'since_example'; // string | unix time
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getHisotricalMetrics($bucket, $since);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->MetricsApi->getHisotricalMetrics('key-example', 1697279296);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MetricsApi->getHisotricalMetrics: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -72,9 +59,7 @@ try {
 
 ## `getMetricsSummary()`
 
-```php
-getMetricsSummary($bucket): \OpenAPI\Client\Model\GetMetricsSummary200Response
-```
+
 
 metrics summary
 
@@ -84,27 +69,17 @@ metrics summary
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MetricsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getMetricsSummary($bucket);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->MetricsApi->getMetricsSummary('key-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MetricsApi->getMetricsSummary: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

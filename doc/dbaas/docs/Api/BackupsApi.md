@@ -11,9 +11,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `createBackup()`
 
-```php
-createBackup($id)
-```
+
 
 Backup a database
 
@@ -25,26 +23,17 @@ backup a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BackupsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $apiInstance->createBackup($id);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->BackupsApi->createBackup('id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BackupsApi->createBackup: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -72,9 +61,7 @@ void (empty response body)
 
 ## `downloadBackup()`
 
-```php
-downloadBackup($id, $name): \OpenAPI\Client\Model\DownloadBackup200Response
-```
+
 
 Download a backup
 
@@ -86,28 +73,17 @@ download a backup that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BackupsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your database
-$name = 'name_example'; // string | The name of your backup
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->downloadBackup($id, $name);
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->BackupsApi->downloadBackup('id-example', 'name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BackupsApi->downloadBackup: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -136,9 +112,7 @@ try {
 
 ## `getListBackups()`
 
-```php
-getListBackups($id): \OpenAPI\Client\Model\GetListBackups200Response
-```
+
 
 Get all backups
 
@@ -150,27 +124,17 @@ get all backups that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BackupsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->getListBackups($id);
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->BackupsApi->getListBackups('id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BackupsApi->getListBackups: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

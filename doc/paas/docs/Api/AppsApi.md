@@ -18,9 +18,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `changePlan()`
 
-```php
-changePlan($name, $plan)
-```
+
 
 Change plan
 
@@ -32,27 +30,19 @@ create app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$plan = new \OpenAPI\Client\Model\ChangePlanRequest(); // \OpenAPI\Client\Model\ChangePlanRequest | The plan of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->changePlan($name, $plan);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\ChangePlanRequest();
+    $body->setPlanId('example-plan-id');
+    $result = $instance->AppsApi->changePlan('name-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->changePlan: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -81,9 +71,7 @@ void (empty response body)
 
 ## `createApp()`
 
-```php
-createApp($create_app)
-```
+
 
 Create a app
 
@@ -95,26 +83,21 @@ create app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$create_app = new \OpenAPI\Client\Model\CreateApp(); // \OpenAPI\Client\Model\CreateApp
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->createApp($create_app);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateApp();
+    $body->setPlanId('example-plan-id');
+    $body->setName('example-name');
+    $body->setPlatform('example-platform');
+    $result = $instance->AppsApi->createApp($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->createApp: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -142,9 +125,7 @@ void (empty response body)
 
 ## `deleteAppByName()`
 
-```php
-deleteAppByName($name)
-```
+
 
 Delete a app
 
@@ -156,26 +137,17 @@ delete app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of the app to delete
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->deleteAppByName($name);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->deleteAppByName('name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->deleteAppByName: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -203,9 +175,7 @@ void (empty response body)
 
 ## `getAppApplets()`
 
-```php
-getAppApplets($name): \OpenAPI\Client\Model\Applets
-```
+
 
 Get applets of app
 
@@ -217,27 +187,17 @@ get applets of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppApplets($name);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->getAppApplets('name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->getAppApplets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -265,9 +225,7 @@ try {
 
 ## `getAppByName()`
 
-```php
-getAppByName($name): \OpenAPI\Client\Model\ProjectAllDetails
-```
+
 
 Get details of a project
 
@@ -276,30 +234,7 @@ get all details of all project that user owns
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-
-try {
-    $result = $apiInstance->getAppByName($name);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AppsApi->getAppByName: ', $e->getMessage(), PHP_EOL;
-}
+null
 ```
 
 ### Parameters
@@ -327,9 +262,7 @@ try {
 
 ## `getAppLogs()`
 
-```php
-getAppLogs($name, $since): \OpenAPI\Client\Model\LogsInner[]
-```
+
 
 Get logs of app
 
@@ -341,28 +274,17 @@ get logs of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$since = 'since_example'; // string | Show logs since timestamp
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppLogs($name, $since);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->getAppByName('name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->getAppLogs: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -391,9 +313,7 @@ try {
 
 ## `getAppReleases()`
 
-```php
-getAppReleases($name, $page, $count): \OpenAPI\Client\Model\Releases
-```
+
 
 Get releases of app
 
@@ -405,29 +325,17 @@ get releases of app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$page = 1.0; // float | The page of your releases
-$count = 10.0; // float | The count of your releases
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppReleases($name, $page, $count);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->getAppReleases('name-example', 1, 15);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->getAppReleases: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -457,9 +365,7 @@ try {
 
 ## `getApps()`
 
-```php
-getApps(): \OpenAPI\Client\Model\Projects
-```
+
 
 Get details of all projects
 
@@ -471,26 +377,16 @@ get all details of all projects that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getApps();
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->getApps();
+    print_r("$result \n");
 } catch (Exception $e) {
     echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -516,9 +412,7 @@ This endpoint does not need any parameter.
 
 ## `restartApp()`
 
-```php
-restartApp($name)
-```
+
 
 To restart a app
 
@@ -530,26 +424,17 @@ to restart app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of the app to restart
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->restartApp($name);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->AppsApi->restartApp('name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->restartApp: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -577,9 +462,7 @@ void (empty response body)
 
 ## `turnApp()`
 
-```php
-turnApp($name, $scale)
-```
+
 
 Turn on or off a app
 
@@ -591,27 +474,19 @@ turn on or off a app that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AppsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of the app to turn on or off
-$scale = new \OpenAPI\Client\Model\TurnAppRequest(); // \OpenAPI\Client\Model\TurnAppRequest | Return 1 to turn on or 0 to turn off
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->turnApp($name, $scale);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new OpenAPI\Client\Model\TurnAppRequest();
+    $body->setScale(0);
+    $result = $instance->AppsApi->turnApp('name-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AppsApi->turnApp: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

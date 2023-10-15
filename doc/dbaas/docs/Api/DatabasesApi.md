@@ -16,9 +16,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `changeControlPanel()`
 
-```php
-changeControlPanel($id, $status): \OpenAPI\Client\Model\ChangeControlPanel200Response
-```
+
 
 Change control-panel status
 
@@ -30,28 +28,17 @@ change control-panel status that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$status = 'status_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->changeControlPanel($id, $status);
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->DatabasesApi->changeControlPanel('id-example', 'status-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->changeControlPanel: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -80,9 +67,7 @@ try {
 
 ## `changePublicNetwork()`
 
-```php
-changePublicNetwork($id, $status)
-```
+
 
 Change public network status
 
@@ -94,27 +79,17 @@ change public network status that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$status = 'status_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $apiInstance->changePublicNetwork($id, $status);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->DatabasesApi->changePublicNetwork('id-example', 'status-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->changePublicNetwork: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -143,9 +118,7 @@ void (empty response body)
 
 ## `createDatabase()`
 
-```php
-createDatabase($create_a_databases): \OpenAPI\Client\Model\CreateDatabase200Response
-```
+
 
 Create a database
 
@@ -157,27 +130,28 @@ create a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$create_a_databases = new \OpenAPI\Client\Model\CreateDatabases(); // \OpenAPI\Client\Model\CreateDatabases
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->createDatabase($create_a_databases);
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+
+    $body = new \OpenAPI\Client\Model\CreateDatabases();
+    $body->setHostname('hostname-example');
+    $body->setOptions([
+        'standaloneReplicaSet' => true
+    ]);
+    $body->setPublicNetwork(true);
+    $body->setType('type-example');
+    $body->setPlanId('planID-example');
+    $body->setVersion('version-example');
+
+    $result = $instance->DatabasesApi->createDatabase($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->createDatabase: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -205,9 +179,7 @@ try {
 
 ## `deleteDatabase()`
 
-```php
-deleteDatabase($id)
-```
+
 
 Delete a database
 
@@ -219,26 +191,17 @@ delete a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $apiInstance->deleteDatabase($id);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->DatabasesApi->deleteDatabase('id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->deleteDatabase: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -266,9 +229,7 @@ void (empty response body)
 
 ## `getDatabase()`
 
-```php
-getDatabase($id): \OpenAPI\Client\Model\DBDetails
-```
+
 
 Get a database
 
@@ -280,27 +241,17 @@ get a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->getDatabase($id);
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->DatabasesApi->getDatabase('id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->getDatabase: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -328,9 +279,7 @@ try {
 
 ## `getListDatabases()`
 
-```php
-getListDatabases(): \OpenAPI\Client\Model\DBsDetails
-```
+
 
 Get all databases
 
@@ -342,26 +291,17 @@ get all databases that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\Dbaas;
 
 try {
-    $result = $apiInstance->getListDatabases();
-    print_r($result);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $result = $instance->DatabasesApi->getListDatabases();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->getListDatabases: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -387,9 +327,7 @@ This endpoint does not need any parameter.
 
 ## `resizeDatabase()`
 
-```php
-resizeDatabase($id, $resize)
-```
+
 
 Resize a database
 
@@ -401,27 +339,20 @@ resize a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$resize = new \OpenAPI\Client\Model\ResizeDatabaseRequest(); // \OpenAPI\Client\Model\ResizeDatabaseRequest
+use OpenAPI\Client\Dbaas;
 
 try {
-    $apiInstance->resizeDatabase($id, $resize);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\ResizeDatabaseRequest();
+    $body->setDisk(true);
+    $body->setPlanId('plan-id-example');
+    $result = $instance->DatabasesApi->resizeDatabase('id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->resizeDatabase: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -450,9 +381,7 @@ void (empty response body)
 
 ## `turnDatabase()`
 
-```php
-turnDatabase($id, $scale)
-```
+
 
 Power on or power off a database
 
@@ -464,27 +393,19 @@ power on or power off a database that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$scale = new \OpenAPI\Client\Model\TurnDatabaseRequest(); // \OpenAPI\Client\Model\TurnDatabaseRequest | 1 for power on or 0 for power off
+use OpenAPI\Client\Dbaas;
 
 try {
-    $apiInstance->turnDatabase($id, $scale);
+    $instance = new Dbaas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\TurnDatabaseRequest();
+    $body->setScale(1);
+    $result = $instance->DatabasesApi->turnDatabase('id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->turnDatabase: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

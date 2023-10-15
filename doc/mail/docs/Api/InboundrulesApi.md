@@ -11,9 +11,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `addInboundRule()`
 
-```php
-addInboundRule($mail_server_id, $model11): \OpenAPI\Client\Model\PostMails201Response
-```
+
 
 add inbound rule.
 
@@ -23,28 +21,19 @@ add inbound rule.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\InboundrulesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$model11 = new \OpenAPI\Client\Model\Model11(); // \OpenAPI\Client\Model\Model11
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->addInboundRule($mail_server_id, $model11);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model11();
+    $body->setRule('example-rule');
+    $result = $instance->InboundrulesApi->addInboundRule('example-id', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling InboundrulesApi->addInboundRule: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -73,9 +62,7 @@ try {
 
 ## `deleteInboundRule()`
 
-```php
-deleteInboundRule($mail_server_id, $inboundrule_id)
-```
+
 
 delete inbound rule.
 
@@ -85,27 +72,17 @@ delete inbound rule.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\InboundrulesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$inboundrule_id = 'inboundrule_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $apiInstance->deleteInboundRule($mail_server_id, $inboundrule_id);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->InboundrulesApi->deleteInboundRule('example-id', 'inboundrule-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling InboundrulesApi->deleteInboundRule: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -134,9 +111,7 @@ void (empty response body)
 
 ## `getAllInboundRules()`
 
-```php
-getAllInboundRules($mail_server_id): \OpenAPI\Client\Model\MailInboundRules
-```
+
 
 get all inbound rules.
 
@@ -146,27 +121,17 @@ get all inbound rules.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\InboundrulesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getAllInboundRules($mail_server_id);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->InboundrulesApi->getAllInboundRules('example-id',);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling InboundrulesApi->getAllInboundRules: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

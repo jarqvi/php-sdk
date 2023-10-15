@@ -18,9 +18,7 @@ All URIs are relative to https://storage-service.iran.liara.ir, except if the op
 
 ## `changeBucketAccess()`
 
-```php
-changeBucketAccess($bucket, $permission): \OpenAPI\Client\Model\ChangeBucketAccess200Response
-```
+
 
 change Bucket Access Policy
 
@@ -32,28 +30,17 @@ Change Bucket Access policy on an object storage ( public / private )
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$permission = 'permission_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->changeBucketAccess($bucket, $permission);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->changeBucketAccess('bucket-example', 'private'); // or public
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->changeBucketAccess: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -82,9 +69,7 @@ try {
 
 ## `checkBucket()`
 
-```php
-checkBucket($bucket): \OpenAPI\Client\Model\CreateBucket201Response
-```
+
 
 Check Bucket availability
 
@@ -96,27 +81,17 @@ Check if you can create Bucket with specified Name.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->checkBucket($bucket);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->checkBucket('bucket-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->checkBucket: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -144,9 +119,7 @@ try {
 
 ## `createBucket()`
 
-```php
-createBucket($body): \OpenAPI\Client\Model\CreateBucket201Response
-```
+
 
 Create Bucket
 
@@ -158,27 +131,21 @@ creates a new bucket on an object storage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \OpenAPI\Client\Model\CreateBucket(); // \OpenAPI\Client\Model\CreateBucket | create bucket. Acceptable values for permission: ( private / public ) and for plan: ( 20g, 40g, 80g, 160g )
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->createBucket($body);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateBucket();
+    $body->setName('bucket-example');
+    $body->setPlan('plan-example');
+    $body->setPermission('permission-example');
+    $result = $instance->BucketApi->createBucket($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->createBucket: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -206,9 +173,7 @@ try {
 
 ## `destroyBucket()`
 
-```php
-destroyBucket($bucket)
-```
+
 
 Destroy Bucket
 
@@ -220,26 +185,17 @@ Delete Bucket on an object storage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->destroyBucket($bucket);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->destroyBucket('bucket-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->destroyBucket: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -267,9 +223,7 @@ void (empty response body)
 
 ## `getBuckets()`
 
-```php
-getBuckets(): \OpenAPI\Client\Model\ListBucket
-```
+
 
 List all Buckets
 
@@ -281,26 +235,17 @@ List all Bucket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getBuckets();
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->getBuckets();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->getBuckets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -326,9 +271,7 @@ This endpoint does not need any parameter.
 
 ## `getListPreviousBuckets()`
 
-```php
-getListPreviousBuckets()
-```
+
 
 List storage service buckets
 
@@ -337,28 +280,20 @@ List previous buckets of storage service in liara.
 ### Example
 
 ```php
-<?php
+?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->getListPreviousBuckets();
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->getListPreviousBuckets();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->getListPreviousBuckets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -384,9 +319,7 @@ void (empty response body)
 
 ## `getMigrations()`
 
-```php
-getMigrations(): \OpenAPI\Client\Model\GetMigrations200Response
-```
+
 
 list migration operation
 
@@ -398,26 +331,17 @@ list migration operation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getMigrations();
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->getMigrations();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->getMigrations: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -443,9 +367,7 @@ This endpoint does not need any parameter.
 
 ## `getSingleBuckets()`
 
-```php
-getSingleBuckets($bucket): \OpenAPI\Client\Model\GetSingleBuckets200Response
-```
+
 
 Get Single Buckets
 
@@ -455,27 +377,17 @@ Get Single Buckets
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getSingleBuckets($bucket);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->getSingleBuckets('bucket-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->getSingleBuckets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -503,9 +415,7 @@ try {
 
 ## `migratingBuckets()`
 
-```php
-migratingBuckets($body)
-```
+
 
 Migrating buckets
 
@@ -517,26 +427,21 @@ Move data from one bucket to another
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \OpenAPI\Client\Model\MigrateBucket(); // \OpenAPI\Client\Model\MigrateBucket | Migrate buckets
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->migratingBuckets($body);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\MigrateBucket();
+    $body->setFrom('from-example');
+    $body->setTo('to-example');
+    $body->setPath('path-example');
+    $result = $instance->BucketApi->migratingBuckets($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->migratingBuckets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -564,9 +469,7 @@ void (empty response body)
 
 ## `upgradeBucket()`
 
-```php
-upgradeBucket($bucket, $plan): \OpenAPI\Client\Model\UpgradeBucket200Response
-```
+
 
 Upgrade Bucket
 
@@ -578,28 +481,17 @@ Upgrade Bucket plan ( just make space bigger )
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\BucketApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$plan = 'plan_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->upgradeBucket($bucket, $plan);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->BucketApi->upgradeBucket('bucket-example', 'plan-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling BucketApi->upgradeBucket: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

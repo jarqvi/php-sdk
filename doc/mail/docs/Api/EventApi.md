@@ -9,9 +9,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `getAllEvents()`
 
-```php
-getAllEvents($mail_server_id, $message_id, $page, $count): \OpenAPI\Client\Model\MailEvents
-```
+
 
 get all events for message
 
@@ -21,30 +19,17 @@ get all events for message
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EventApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$message_id = 'message_id_example'; // string
-$page = 1; // float
-$count = 15; // float
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getAllEvents($mail_server_id, $message_id, $page, $count);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->EventApi->getAllEvents('example-id', 'message-id', 1, 15);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling EventApi->getAllEvents: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

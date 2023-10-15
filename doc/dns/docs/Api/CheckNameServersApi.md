@@ -9,9 +9,7 @@ All URIs are relative to https://dns-service.iran.liara.ir, except if the operat
 
 ## `checkNameServer()`
 
-```php
-checkNameServer($zone): \OpenAPI\Client\Model\Submitted
-```
+
 
 check nameserver
 
@@ -23,27 +21,17 @@ check nameserver of zone
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\CheckNameServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to check status
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->checkNameServer($zone);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->CheckNameServersApi->checkNameServer('example.com', 'text/plain');
+    
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling CheckNameServersApi->checkNameServer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

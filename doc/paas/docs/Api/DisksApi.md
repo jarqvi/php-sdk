@@ -18,9 +18,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `createBackup()`
 
-```php
-createBackup($id, $name)
-```
+
 
 Create backup disk
 
@@ -32,27 +30,17 @@ create backup disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your app
-$name = 'name_example'; // string | The name of your disk
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->createBackup($id, $name);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->createBackup('id-example', 'name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->createBackup: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -81,9 +69,7 @@ void (empty response body)
 
 ## `createDisk()`
 
-```php
-createDisk($name, $disk)
-```
+
 
 Create a disk
 
@@ -95,27 +81,20 @@ create a disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$disk = new \OpenAPI\Client\Model\CreateDiskRequest(); // \OpenAPI\Client\Model\CreateDiskRequest | The disk of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->createDisk($name, $disk);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateDiskRequest();
+    $body->setName('name-example');
+    $body->setSize('size-example');
+    $result = $instance->DisksApi->createDisk('id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->createDisk: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -144,9 +123,7 @@ void (empty response body)
 
 ## `createFtp()`
 
-```php
-createFtp($name, $dname, $create_ftp): \OpenAPI\Client\Model\CreateFtp200Response
-```
+
 
 Create ftp
 
@@ -158,29 +135,20 @@ create ftp that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$dname = 'dname_example'; // string | The name of your disk
-$create_ftp = new \OpenAPI\Client\Model\CreateFtpRequest(); // \OpenAPI\Client\Model\CreateFtpRequest | The plan of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->createFtp($name, $dname, $create_ftp);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateFtpRequest();
+    $body->setUsername('name-example');
+    $body->setReadOnly(true);
+    $result = $instance->DisksApi->createFtp('name-example', 'dname-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->createFtp: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -210,9 +178,7 @@ try {
 
 ## `deleteDisk()`
 
-```php
-deleteDisk($id, $name)
-```
+
 
 Delete a disk
 
@@ -224,27 +190,17 @@ delete a disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your app
-$name = 'name_example'; // string | The name of your disk of app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->deleteDisk($id, $name);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->deleteDisk('id-example', 'name-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->deleteDisk: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -273,9 +229,7 @@ void (empty response body)
 
 ## `deleteFtp()`
 
-```php
-deleteFtp($fname)
-```
+
 
 Delete a ftp
 
@@ -287,26 +241,17 @@ delete a ftp that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$fname = 'fname_example'; // string | The name of your ftp
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->deleteFtp($fname);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->deleteFtp('fname-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->deleteFtp: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -334,9 +279,7 @@ void (empty response body)
 
 ## `downloadBackup()`
 
-```php
-downloadBackup($id, $dname, $bname): \OpenAPI\Client\Model\DownloadBackup200Response
-```
+
 
 Download backup disk
 
@@ -348,29 +291,17 @@ download backup disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your app
-$dname = 'dname_example'; // string | The name of your disk
-$bname = 'bname_example'; // string | The name of your backup
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->downloadBackup($id, $dname, $bname);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->downloadBackup('id-example', 'dname-example', 'bname-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->downloadBackup: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -400,9 +331,7 @@ try {
 
 ## `getBackups()`
 
-```php
-getBackups($id, $name): \OpenAPI\Client\Model\GetDiskBackup
-```
+
 
 Get backups disk
 
@@ -414,28 +343,17 @@ get backups disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your app
-$name = 'name_example'; // string | The name of your disk
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getBackups($id, $name);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->getBackups('id-example', 'dname-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->getBackups: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -464,9 +382,7 @@ try {
 
 ## `getDisks()`
 
-```php
-getDisks($id): \OpenAPI\Client\Model\GetDisks
-```
+
 
 Get disks
 
@@ -478,27 +394,17 @@ get disks that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getDisks($id);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->getDisks('id-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->getDisks: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -526,9 +432,7 @@ try {
 
 ## `getFtps()`
 
-```php
-getFtps($name, $dname): \OpenAPI\Client\Model\GetFtps200Response
-```
+
 
 Get ftps
 
@@ -540,28 +444,17 @@ get ftps that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$dname = 'dname_example'; // string | The name of your disk
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getFtps($name, $dname);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DisksApi->getFtps('name-example', 'dname-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->getFtps: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -590,9 +483,7 @@ try {
 
 ## `resizeDisk()`
 
-```php
-resizeDisk($name, $dname, $resize_disk)
-```
+
 
 Resize disk
 
@@ -604,28 +495,19 @@ resize disk that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DisksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app
-$dname = 'dname_example'; // string | The name of your disk
-$resize_disk = new \OpenAPI\Client\Model\ResizeDiskRequest(); // \OpenAPI\Client\Model\ResizeDiskRequest | The size of your disk
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->resizeDisk($name, $dname, $resize_disk);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\ResizeDiskRequest();
+    $body->setSize(10);
+    $result = $instance->DisksApi->resizeDisk('name-example', 'dname-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DisksApi->resizeDisk: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

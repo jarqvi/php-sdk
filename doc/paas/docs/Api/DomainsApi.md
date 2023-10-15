@@ -16,9 +16,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `checkDomain()`
 
-```php
-checkDomain($id): \OpenAPI\Client\Model\CheckDomain
-```
+
 
 Check a domain
 
@@ -30,27 +28,17 @@ check a domain that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your domain
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->checkDomain($id);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DomainsApi->checkDomain('example.com');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->checkDomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -78,9 +66,7 @@ try {
 
 ## `createAppDomain()`
 
-```php
-createAppDomain($domain): \OpenAPI\Client\Model\CreateAppDomain201Response
-```
+
 
 Create a domain
 
@@ -92,27 +78,22 @@ create a domain that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$domain = new \OpenAPI\Client\Model\CreateAppDomainRequest(); // \OpenAPI\Client\Model\CreateAppDomainRequest | The domain of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->createAppDomain($domain);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateAppDomainRequest();
+    $body->setName('example.com');
+    $body->setProject('project-name');
+    $body->setType('PROJECT');
+
+    $result = $instance->DomainsApi->createAppDomain('example.com');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->createAppDomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -140,9 +121,7 @@ try {
 
 ## `deleteDomain()`
 
-```php
-deleteDomain($id)
-```
+
 
 Delete a domain
 
@@ -154,26 +133,17 @@ delete a domain that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your domain
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->deleteDomain($id);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DomainsApi->deleteDomain('example-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->deleteDomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -201,9 +171,7 @@ void (empty response body)
 
 ## `disableSsl()`
 
-```php
-disableSsl($id)
-```
+
 
 Disable ssl
 
@@ -215,26 +183,17 @@ disable ssl that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your domain
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->disableSsl($id);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DomainsApi->disableSsl('example-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->disableSsl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -262,9 +221,7 @@ void (empty response body)
 
 ## `enableSsl()`
 
-```php
-enableSsl($domain): \OpenAPI\Client\Model\EnableSsl200Response
-```
+
 
 Enable ssl
 
@@ -276,27 +233,19 @@ enable ssl that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$domain = new \OpenAPI\Client\Model\EnableSslRequest(); // \OpenAPI\Client\Model\EnableSslRequest | The domain of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->enableSsl($domain);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\EnableSslRequest();
+    $body->setDomain('domain-example');
+    $result = $instance->DomainsApi->enableSsl($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->enableSsl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -324,9 +273,7 @@ try {
 
 ## `getAppDomains()`
 
-```php
-getAppDomains($project): \OpenAPI\Client\Model\Domains
-```
+
 
 Get all domains
 
@@ -338,27 +285,17 @@ get all domains that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project = 'project_example'; // string | The name of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->getAppDomains($project);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DomainsApi->getAppDomains('project-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->getAppDomains: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -386,9 +323,7 @@ try {
 
 ## `redirectDomain()`
 
-```php
-redirectDomain($id, $domain)
-```
+
 
 Redirect a domain
 
@@ -400,27 +335,20 @@ redirect a domain that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The id of your domain
-$domain = new \OpenAPI\Client\Model\RedirectDomainRequest(); // \OpenAPI\Client\Model\RedirectDomainRequest | The domain of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->redirectDomain($id, $domain);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\RedirectDomainRequest();
+    $body->setRedirectTo('example.com');
+    $body->setRedirectStatus(301); // or 302
+    $result = $instance->DomainsApi->redirectDomain('id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->redirectDomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -449,9 +377,7 @@ void (empty response body)
 
 ## `setAppDomain()`
 
-```php
-setAppDomain($domain)
-```
+
 
 Set a domain for project
 
@@ -463,26 +389,20 @@ set a domain for project that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$domain = new \OpenAPI\Client\Model\SetAppDomainRequest(); // \OpenAPI\Client\Model\SetAppDomainRequest | The domain of your app
+use OpenAPI\Client\Paas;
 
 try {
-    $apiInstance->setAppDomain($domain);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\SetAppDomainRequest();
+    $body->setDomainID('domain-example');
+    $body->setProjectID('project-example');
+    $result = $instance->DomainsApi->setAppDomain('id-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->setAppDomain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

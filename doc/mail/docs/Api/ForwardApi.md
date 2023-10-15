@@ -11,9 +11,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `createAddressForwarding()`
 
-```php
-createAddressForwarding($mail_server_id, $account_id, $body): \OpenAPI\Client\Model\PostMails201Response
-```
+
 
 add address endpoint to forwarding mails
 
@@ -23,29 +21,19 @@ add address endpoint to forwarding mails
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ForwardApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$account_id = 'account_id_example'; // string
-$body = new \OpenAPI\Client\Model\Model6(); // \OpenAPI\Client\Model\Model6
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->createAddressForwarding($mail_server_id, $account_id, $body);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model6();
+    $body->setAddress('example-address');
+    $result = $instance->ForwardApi->createAddressForwarding('example-id', 'account-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ForwardApi->createAddressForwarding: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -75,9 +63,7 @@ try {
 
 ## `deleteExtraEndpoint()`
 
-```php
-deleteExtraEndpoint($mail_server_id, $account_id, $address_id)
-```
+
 
 delete extra endpoint address
 
@@ -87,28 +73,17 @@ delete extra endpoint address
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ForwardApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$account_id = 'account_id_example'; // string
-$address_id = 'address_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $apiInstance->deleteExtraEndpoint($mail_server_id, $account_id, $address_id);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->ForwardApi->deleteExtraEndpoint('example-id', 'account-id', 'address-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ForwardApi->deleteExtraEndpoint: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -138,9 +113,7 @@ void (empty response body)
 
 ## `getListAddressForwarding()`
 
-```php
-getListAddressForwarding($mail_server_id, $account_id): \OpenAPI\Client\Model\MailForwards
-```
+
 
 get all extra address to forwarding mails
 
@@ -150,28 +123,17 @@ get all extra address to forwarding mails
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ForwardApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$account_id = 'account_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getListAddressForwarding($mail_server_id, $account_id);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->ForwardApi->getListAddressForwarding('example-id', 'account-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ForwardApi->getListAddressForwarding: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

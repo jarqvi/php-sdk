@@ -14,9 +14,7 @@ All URIs are relative to https://storage-service.iran.liara.ir, except if the op
 
 ## `createKey()`
 
-```php
-createKey($body): \OpenAPI\Client\Model\CreateKey201Response
-```
+
 
 Create Keys
 
@@ -28,27 +26,23 @@ Create access and secret key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \OpenAPI\Client\Model\CreateKey(); // \OpenAPI\Client\Model\CreateKey | Declare Buckets for access key
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->createKey($body);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateKey();
+    $body->setDescription('example-description');
+    $body->setBuckets([
+        'example-bucket-1',
+        'example-bucket-2',
+    ]);
+    $result = $instance->KeyApi->createKey($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->createKey: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -76,9 +70,7 @@ try {
 
 ## `deleteKey()`
 
-```php
-deleteKey($key)
-```
+
 
 Delete Key
 
@@ -90,26 +82,17 @@ Delete access key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$key = 'key_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->deleteKey($key);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->KeyApi->deleteKey('key-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->deleteKey: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -137,9 +120,7 @@ void (empty response body)
 
 ## `getKey()`
 
-```php
-getKey($key)
-```
+
 
 Get Key
 
@@ -151,26 +132,17 @@ Get a key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$key = 'key_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->getKey($key);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->KeyApi->getKey('key-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->getKey: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -198,9 +170,7 @@ void (empty response body)
 
 ## `getListKeys()`
 
-```php
-getListKeys(): \OpenAPI\Client\Model\Keys
-```
+
 
 Get List of Keys
 
@@ -210,26 +180,17 @@ Get List of Keys
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getListKeys();
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->KeyApi->getListKeys();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->getListKeys: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -255,9 +216,7 @@ This endpoint does not need any parameter.
 
 ## `revokeSecretKey()`
 
-```php
-revokeSecretKey($key): \OpenAPI\Client\Model\RevokeSecretKey200Response
-```
+
 
 Revoke secret key
 
@@ -269,27 +228,17 @@ Revoke secret key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$key = 'key_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->revokeSecretKey($key);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->KeyApi->revokeSecretKey('key-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->revokeSecretKey: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -317,9 +266,7 @@ try {
 
 ## `updateKey()`
 
-```php
-updateKey($key, $body): \OpenAPI\Client\Model\CreateBucket201Response
-```
+
 
 Update key
 
@@ -331,28 +278,23 @@ Update buckets of key ( redefine )
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\KeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$key = 'key_example'; // string
-$body = new \OpenAPI\Client\Model\CreateKey(); // \OpenAPI\Client\Model\CreateKey | Declare Buckets for access key
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->updateKey($key, $body);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateKey();
+    $body->setDescription('example-description');
+    $body->setBuckets([
+        'example-bucket-1',
+        'example-bucket-2',
+    ]);
+    $result = $instance->KeyApi->updateKey('key-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling KeyApi->updateKey: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

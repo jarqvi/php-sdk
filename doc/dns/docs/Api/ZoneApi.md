@@ -12,9 +12,7 @@ All URIs are relative to https://dns-service.iran.liara.ir, except if the operat
 
 ## `createZone()`
 
-```php
-createZone($zone_struct): \OpenAPI\Client\Model\CreateZone
-```
+
 
 Create Zone
 
@@ -26,27 +24,19 @@ creates a new zone on dns server
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ZoneApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone_struct = new \OpenAPI\Client\Model\CreateZoneRequest(); // \OpenAPI\Client\Model\CreateZoneRequest | The zone to create
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->createZone($zone_struct);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\CreateZoneRequest();
+    $body->setName('example.com');
+    $result = $instance->ZoneApi->createZone($body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ZoneApi->createZone: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -74,9 +64,7 @@ try {
 
 ## `deleteZone()`
 
-```php
-deleteZone($zone): \OpenAPI\Client\Model\Submitted
-```
+
 
 Delete Zone
 
@@ -88,27 +76,17 @@ Deletes this zone, all dns records
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ZoneApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone to delete
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->deleteZone($zone);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->ZoneApi->deleteZone('example.com');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ZoneApi->deleteZone: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -136,9 +114,7 @@ try {
 
 ## `getListZones()`
 
-```php
-getListZones(): \OpenAPI\Client\Model\Zones
-```
+
 
 List all zones
 
@@ -150,26 +126,17 @@ list all zones that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ZoneApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->getListZones();
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->ZoneApi->getListZones();
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ZoneApi->getListZones: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -195,9 +162,7 @@ This endpoint does not need any parameter.
 
 ## `getZone()`
 
-```php
-getZone($zone): \OpenAPI\Client\Model\CreateZone
-```
+
 
 Get Zone
 
@@ -209,27 +174,17 @@ Get this zone, all dns records
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ZoneApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$zone = 'zone_example'; // string | The name of the zone
+use OpenAPI\Client\Dns;
 
 try {
-    $result = $apiInstance->getZone($zone);
-    print_r($result);
+    $instance = new Dns('YOUR-API-TOKEN');
+    $result = $instance->ZoneApi->getZone('example.com');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ZoneApi->getZone: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AppsApi->getApps: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

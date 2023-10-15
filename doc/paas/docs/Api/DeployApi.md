@@ -10,9 +10,7 @@ All URIs are relative to https://api.iran.liara.ir, except if the operation defi
 
 ## `releasesDeploy()`
 
-```php
-releasesDeploy($name, $deploy_releases): \OpenAPI\Client\Model\ReleasesDeploy200Response
-```
+
 
 Deploy releases
 
@@ -24,28 +22,19 @@ deploy releases that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DeployApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app for deploy
-$deploy_releases = new \OpenAPI\Client\Model\DeployReleases(); // \OpenAPI\Client\Model\DeployReleases
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->releasesDeploy($name, $deploy_releases);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\DeployReleases();
+    $body->setSourceId('source-id-example');
+    $result = $instance->DeployApi->releasesDeploy('name-example', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DeployApi->releasesDeploy: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -74,9 +63,7 @@ try {
 
 ## `sourcesDeploy()`
 
-```php
-sourcesDeploy($name, $file): \OpenAPI\Client\Model\SourcesDeploy200Response
-```
+
 
 Deploy sources code
 
@@ -88,28 +75,17 @@ deploy sources code that user owns
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\DeployApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$name = 'name_example'; // string | The name of your app for deploy
-$file = "/path/to/file.txt"; // \SplFileObject | The .gz file to deploy
+use OpenAPI\Client\Paas;
 
 try {
-    $result = $apiInstance->sourcesDeploy($name, $file);
-    print_r($result);
+    $instance = new Paas('YOUR-API-TOKEN');
+    $result = $instance->DeployApi->sourcesDeploy('name-example', './app.tar.xz');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling DeployApi->sourcesDeploy: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

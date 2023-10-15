@@ -13,9 +13,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `generateTemporary()`
 
-```php
-generateTemporary($mail_server_id, $message_id, $expiration): \OpenAPI\Client\Model\TmpAccess
-```
+
 
 generate temporary access to email html
 
@@ -25,29 +23,17 @@ generate temporary access to email html
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$message_id = 'message_id_example'; // string
-$expiration = 1; // float | Specifying hourly expiration schedule options
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->generateTemporary($mail_server_id, $message_id, $expiration);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->MessagesApi->generateTemporary('example-id', 'message-id', 1);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->generateTemporary: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -77,9 +63,7 @@ try {
 
 ## `getAllMails()`
 
-```php
-getAllMails($mail_server_id, $direction, $page, $count, $state, $subject, $from, $to): \OpenAPI\Client\Model\MailMessages
-```
+
 
 get all mails
 
@@ -89,34 +73,17 @@ get all mails
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$direction = 'direction_example'; // string
-$page = 1; // float
-$count = 15; // float
-$state = 'state_example'; // string
-$subject = 'subject_example'; // string
-$from = 'from_example'; // string
-$to = 'to_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getAllMails($mail_server_id, $direction, $page, $count, $state, $subject, $from, $to);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->MessagesApi->getAllMails('example-id', 1, 15, 'incoming', 'state', 'subject', 'from', 'to');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->getAllMails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -151,9 +118,7 @@ try {
 
 ## `getSingleMail()`
 
-```php
-getSingleMail($mail_server_id, $message_id): \OpenAPI\Client\Model\GetSingleMail200Response
-```
+
 
 get single mail
 
@@ -163,28 +128,17 @@ get single mail
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$message_id = 'message_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getSingleMail($mail_server_id, $message_id);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->MessagesApi->getSingleMail('example-id', 'message-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->getSingleMail: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -213,9 +167,7 @@ try {
 
 ## `getSingleMailHtml()`
 
-```php
-getSingleMailHtml($mail_server_id, $message_id, $token)
-```
+
 
 get single mail html
 
@@ -225,28 +177,17 @@ get single mail html
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$message_id = 'message_id_example'; // string
-$token = 'token_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $apiInstance->getSingleMailHtml($mail_server_id, $message_id, $token);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->MessagesApi->getSingleMailHtml('example-id', 'message-id', 'token');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->getSingleMailHtml: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -276,9 +217,7 @@ void (empty response body)
 
 ## `sendMail()`
 
-```php
-sendMail($mail_server_id, $body): \OpenAPI\Client\Model\PostMails201Response
-```
+
 
 send a mail
 
@@ -288,28 +227,33 @@ send a mail
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$body = new \OpenAPI\Client\Model\Model3(); // \OpenAPI\Client\Model\Model3
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->sendMail($mail_server_id, $body);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model3();
+
+    $body->setHtml('example-html');
+    $body->setFrom('example-from');
+    $body->setTo('example-to');
+    $body->setSubject('example-subject');
+    $body->setText('example-text');
+    $body->setReplyto('example-replyto');
+    $body->setAttachments([
+        [
+            'name' => 'example-name',
+            'content_type' => 'example-content_type',
+            'data' => 'example-data'
+        ]
+    ]);
+
+    $result = $instance->MessagesApi->sendMail('example-id', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->sendMail: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

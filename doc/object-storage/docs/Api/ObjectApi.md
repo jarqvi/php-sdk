@@ -13,9 +13,7 @@ All URIs are relative to https://storage-service.iran.liara.ir, except if the op
 
 ## `deleteObject()`
 
-```php
-deleteObject($bucket, $prefix)
-```
+
 
 Delete Object
 
@@ -27,27 +25,17 @@ Delete an object from storage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ObjectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$prefix = 'prefix_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $apiInstance->deleteObject($bucket, $prefix);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->ObjectApi->deleteObject('bucket-example', 'prefix-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ObjectApi->deleteObject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -76,9 +64,7 @@ void (empty response body)
 
 ## `downloadObject()`
 
-```php
-downloadObject($bucket, $object, $expiry): \OpenAPI\Client\Model\DownloadObject200Response
-```
+
 
 Download Object
 
@@ -90,29 +76,17 @@ Return presigned url for download object
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ObjectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$object = 'object_example'; // string | specify object path
-$expiry = 'expiry_example'; // string | example: 2 days 7 hours 45 minutes
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->downloadObject($bucket, $object, $expiry);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->ObjectApi->downloadObject('bucket-example', 'object-example', '2 days 7 hours 45 minutes');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ObjectApi->downloadObject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -142,9 +116,7 @@ try {
 
 ## `getListObjects()`
 
-```php
-getListObjects($bucket, $prefix, $number, $page): \OpenAPI\Client\Model\Objects
-```
+
 
 List Objects
 
@@ -156,30 +128,17 @@ Return list of objects ( max:50, min:1 )
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ObjectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$prefix = 'prefix_example'; // string
-$number = 'number_example'; // string | specify number of object ( max: 50, min: 1 )
-$page = 'page_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getListObjects($bucket, $prefix, $number, $page);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->ObjectApi->getListObjects('bucket-example', 'prefix-example', 10, 1);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ObjectApi->getListObjects: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -210,9 +169,7 @@ try {
 
 ## `getStatObject()`
 
-```php
-getStatObject($bucket, $object): \OpenAPI\Client\Model\Stat
-```
+
 
 Get Stat Object
 
@@ -222,28 +179,17 @@ Get Stat Object
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ObjectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$object = 'object_example'; // string
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->getStatObject($bucket, $object);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->ObjectApi->getStatObject('bucket-example', 'object-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ObjectApi->getStatObject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -272,9 +218,7 @@ try {
 
 ## `uploadObject()`
 
-```php
-uploadObject($bucket, $object): \OpenAPI\Client\Model\DownloadObject200Response
-```
+
 
 Upload Object
 
@@ -286,28 +230,17 @@ Return presigned url for download object
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ObjectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$bucket = 'bucket_example'; // string
-$object = 'object_example'; // string | specify object path
+use OpenAPI\Client\ObjectStorage;
 
 try {
-    $result = $apiInstance->uploadObject($bucket, $object);
-    print_r($result);
+    $instance = new ObjectStorage('YOUR-API-TOKEN');
+    $result = $instance->ObjectApi->uploadObject('bucket-example', 'object-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling ObjectApi->uploadObject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

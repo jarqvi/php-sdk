@@ -12,9 +12,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `checkMailAvailable()`
 
-```php
-checkMailAvailable($mail_server_id, $account_name): \OpenAPI\Client\Model\PostMails201Response
-```
+
 
 check if mail account is available
 
@@ -24,28 +22,17 @@ check if mail account is available
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$account_name = 'account_name_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->checkMailAvailable($mail_server_id, $account_name);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->AccountsApi->checkMailAvailable('example-id', 'example-account');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->checkMailAvailable: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -74,9 +61,7 @@ try {
 
 ## `createMailACcount()`
 
-```php
-createMailACcount($mail_server_id, $body): \OpenAPI\Client\Model\PostMails201Response
-```
+
 
 add mail account
 
@@ -86,28 +71,19 @@ add mail account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$body = new \OpenAPI\Client\Model\Model5(); // \OpenAPI\Client\Model\Model5
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->createMailACcount($mail_server_id, $body);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model5();
+    $body->setName('example-name');
+    $result = $instance->AccountsApi->createMailACcount('example-id', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->createMailACcount: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -136,9 +112,7 @@ try {
 
 ## `deleteMailAccount()`
 
-```php
-deleteMailAccount($mail_server_id, $account_id)
-```
+
 
 delete mail account
 
@@ -148,27 +122,17 @@ delete mail account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$account_id = 'account_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $apiInstance->deleteMailAccount($mail_server_id, $account_id);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->AccountsApi->deleteMailAccount('example-id', 'account-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->deleteMailAccount: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -197,9 +161,7 @@ void (empty response body)
 
 ## `getAllMailAccounts()`
 
-```php
-getAllMailAccounts($mail_server_id): \OpenAPI\Client\Model\MailAccounts
-```
+
 
 get all mail accounts
 
@@ -209,27 +171,17 @@ get all mail accounts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getAllMailAccounts($mail_server_id);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->AccountsApi->getAllMailAccounts('example-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->getAllMailAccounts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

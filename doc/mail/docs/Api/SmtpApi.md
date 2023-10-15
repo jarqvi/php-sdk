@@ -12,9 +12,7 @@ All URIs are relative to https://mail-service.iran.liara.ir, except if the opera
 
 ## `deleteSmtpCredential()`
 
-```php
-deleteSmtpCredential($mail_server_id, $username)
-```
+
 
 delete smtp credential
 
@@ -24,27 +22,17 @@ delete smtp credential
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SmtpApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$username = 'username_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $apiInstance->deleteSmtpCredential($mail_server_id, $username);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->SmtpApi->deleteSmtpCredential('example-id', 'username-example');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SmtpApi->deleteSmtpCredential: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -73,9 +61,7 @@ void (empty response body)
 
 ## `generateCredentials()`
 
-```php
-generateCredentials($mail_server_id, $body): \OpenAPI\Client\Model\CreateSMTP
-```
+
 
 generate credentials to connet mail server with SMTP
 
@@ -85,28 +71,19 @@ generate credentials to connet mail server with SMTP
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SmtpApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$body = new \OpenAPI\Client\Model\Model4(); // \OpenAPI\Client\Model\Model4
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->generateCredentials($mail_server_id, $body);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model4();
+    $body->setDescription('example-description');
+    $result = $instance->SmtpApi->generateCredentials('example-id', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SmtpApi->generateCredentials: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -135,9 +112,7 @@ try {
 
 ## `getCredential()`
 
-```php
-getCredential($mail_server_id): \OpenAPI\Client\Model\SMTP
-```
+
 
 get credential to connect to mail server with SMTP
 
@@ -147,27 +122,17 @@ get credential to connect to mail server with SMTP
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SmtpApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->getCredential($mail_server_id);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $result = $instance->SmtpApi->getCredential('example-id');
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SmtpApi->getCredential: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -195,9 +160,7 @@ try {
 
 ## `revokeCredentials()`
 
-```php
-revokeCredentials($mail_server_id, $body): \OpenAPI\Client\Model\CreateSMTP
-```
+
 
 revoke credentials to connect mail server with SMTP
 
@@ -207,28 +170,19 @@ revoke credentials to connect mail server with SMTP
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: jwt
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SmtpApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$mail_server_id = 'mail_server_id_example'; // string
-$body = new \OpenAPI\Client\Model\Model9(); // \OpenAPI\Client\Model\Model9
+use OpenAPI\Client\Mail;
 
 try {
-    $result = $apiInstance->revokeCredentials($mail_server_id, $body);
-    print_r($result);
+    $instance = new Mail('YOUR-API-TOKEN');
+    $body = new \OpenAPI\Client\Model\Model9();
+    $body->setUsername('example-username');
+    $result = $instance->SmtpApi->revokeCredentials('example-id', $body);
+
+    print_r("$result \n");
 } catch (Exception $e) {
-    echo 'Exception when calling SmtpApi->revokeCredentials: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DnsRecordApi->createDnsRecord: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
