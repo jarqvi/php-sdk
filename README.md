@@ -16,7 +16,7 @@ git clone https://github.com/liara-cloud/php-sdk.git
 _windows:_
 
 ```
-./bin/cmd/generate.cmd && ./bin/cmd/doc.cmd && ./bin/cmd/remove-files.cmd
+./bin/cmd/generate.cmd && ./bin/cmd/doc.cmd && ./bin/cmd/remove-files.cmd && ./bin/cmd/class.cmd
 ```
 ```
 cd ./bin/template/docs
@@ -26,7 +26,7 @@ npm run start
 _Linux/Mac:_
 
 ```
-./bin/bash/generate.sh && ./bin/bash/doc.sh && ./bin/bash/remove-files.sh
+./bin/bash/generate.sh && ./bin/bash/doc.sh && ./bin/bash/remove-files.sh && ./bin/bash/class.sh
 ```
 ```
 cd ./bin/template/docs

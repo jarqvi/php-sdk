@@ -11,7 +11,7 @@ if exist %1 (
 goto :eof
 
 REM Directory paths where files should be deleted
-set "directories=./object-storage ./dbaas ./paas ./mail ./dns"
+set "directories=.\object-storage .\dbaas .\paas .\mail .\dns"
 
 REM Files to delete in each directory
 set "files_to_delete=composer.json .gitignore git_push.sh .php-cs-fixer.dist.php .travis.yml phpunit.xml.dist"
